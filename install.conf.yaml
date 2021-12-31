@@ -1,0 +1,16 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.config/alacritty: alacritty
+    ~/.config/rofi: rofi
+    ~/.config/polybar: polybar
+    ~/.config/fish: fish
+    ~/.config/i3: i3  
+    ~/.config/sxhkd: sxhkd
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
