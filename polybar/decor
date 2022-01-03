@@ -2,6 +2,7 @@
 type = custom/text
 content = " "
 content-background = ${color.alt-background}
+content-padding = 2
 
 [module/sep]
 type = custom/text

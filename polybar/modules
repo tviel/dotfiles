@@ -180,11 +180,11 @@ ws-icon-1 = 2;  WEB
 ws-icon-2 = 3;  MAIL
 ws-icon-3 = 4;  CODE
 ws-icon-4 = 5;  MUSIC
-ws-icon-5 = 6;  CHAT
+ws-icon-5 = 6;  CHAT
 ws-icon-6 = 7;  GAMES
-ws-icon-7 = 8;  VAM
+ws-icon-7 = 8;  VAM
 ws-icon-8 = 9;  BLENDER
-ws-icon-9 = 0; CID
+ws-icon-9 = 0;  CID
 
 format = <label-state><label-mode>
 format-background = ${color.alt-background}
@@ -198,6 +198,9 @@ label-mode-foreground = ${color.yellow}
 label-focused = %icon%
 label-focused-foreground = ${color.highlight}
 label-focused-background = ${color.alt-background}
+label-focused-underline = ${color.highlight}
+label-focused-underline-size =10
+
 
 label-unfocused = %icon%
 label-unfocused-foreground = ${color.setback}
@@ -225,13 +228,25 @@ label-separator-background = ${color.alt-background}
 
 [module/cpu]
 type = internal/cpu
-interval = 2
+interval = 1
+format = <label> <ramp-coreload>
 format-prefix = " "
 format-padding = 0
-format-prefix-foreground = ${color.background}
-format-foreground = ${color.background}
-format-background = ${color.green}
-label = "%{A1:terminal -e gtop &:}%percentage%% %{A}"
+format-prefix-foreground = ${color.complementary}
+format-prefix-font = 2
+format-foreground = ${color.complementary}
+format-background = ${color.alt-background}
+label = "%{A1:terminal -e bpytop &:}%percentage%% %{A}"
+; Spacing between individual per-core ramps
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -241,6 +256,7 @@ interval = 1
 format-margin = 0
 time = "%I:%M %p"
 time-alt = "%A, %m/%d/%y"
+
 
 format-prefix = 
 format-prefix-foreground = ${color.complementary}
@@ -285,13 +301,22 @@ type = internal/memory
 
 interval = 1
 
-format = <label>
-format-prefix = " "
-format-prefix-foreground = ${color.background}
-format-foreground = ${color.background}
-format-background = ${color.yellow}
+format = <label> <bar-used>
+format-prefix = " "
+format-prefix-foreground = ${color.complementary}
+format-foreground = ${color.complementary}
+format-background = ${color.alt-background}
 
-label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
+label = "%{A1:terminal -e htop &:} %gb_used%/%gb_total%%{A}"
+bar-used-indicator =
+bar-used-width = 10
+bar-used-foreground-0 = ${color.complementary}
+bar-used-foreground-1 = ${color.complementary}
+bar-used-foreground-2 = ${color.complementary}
+bar-used-foreground-3 = ${color.highlight}
+bar-used-fill =  
+bar-used-empty = 
+bar-used-empty-foreground = ${color.background} 
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -322,7 +347,7 @@ interval = 1.0
 accumulate-stats = true
 unknown-as-up = true
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal><label-connected>
 
 format-disconnected = <label-disconnected>
 format-disconnected-prefix = "睊"
@@ -337,11 +362,59 @@ label-disconnected-foreground = ${color.complementary}
 label-connected-background = ${color.alt-background}
 label-disconnected-background = ${color.alt-background}
 
-ramp-signal-0 = " "
-ramp-signal-1 = " "
-ramp-signal-2 = " "
-ramp-signal-3 = " "
-ramp-signal-4 = " "
+ramp-signal-0 = "  "
+ramp-signal-1 = "  "
+ramp-signal-2 = "  "
+ramp-signal-3 = "  "
+ramp-signal-4 = "  "
 ramp-signal-foreground = ${color.highlight}
 ramp-signal-background = ${color.alt-background}
 ramp-signal-font = 2 
+
+[module/networkif]
+type = internal/network
+interface = ${system.network_interface}
+label-connected = "%ifname%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-font = 2
+format-connected-prefix-foreground = ${color.complementary}
+format-connected-foreground = ${color.complementary}
+format-connected-background = ${color.alt-background}
+
+[module/networkspeedup]
+type = internal/network
+interface = ${system.network_interface}
+label-connected = "%upspeed%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-font = 2
+format-connected-prefix-foreground = ${color.complementary}
+format-connected-foreground = ${color.complementary}
+format-connected-background = ${color.alt-background}
+
+[module/networkspeeddown]
+type = internal/network
+interface = ${system.network_interface}
+label-connected = "%downspeed: 7%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-font = 2
+format-connected-prefix-foreground = ${color.complementary}
+format-connected-foreground = ${color.complementary}
+format-connected-background = ${color.alt-background}
+
+[module/uptime]
+type = custom/script
+exec = uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
+interval = 100
+label = %output%
+
+format-foreground = ${color.complementary}
+format-background = ${color.alt-background}
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-foreground = ${color.complementary}
+
+
+

@@ -1,11 +1,11 @@
 [color]
 
-alt-background = #AA161517
+alt-background = #99161517
 # ${xrdb:background}
 foreground = ${xrdb:foreground}
-highlight = ${xrdb:color3}
+highlight = ${xrdb:color2}
 complementary = ${xrdb:color4}
-background = #99050505
+background = #33050505
 
 black = #050505
 red = #d1040b
