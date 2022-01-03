@@ -1,10 +1,19 @@
-### i3 config file by tviel (thorsten.viel@gmx.de)
+### ip3 config file by tviel (thorsten.viel@gmx.de)
 ###
 ###
 ###
 
 set $alt Mod1
 set $mod Mod4
+
+
+###~~~ set colors from .Xresources ~~~~~
+###
+
+set_from_resource $foreground foreground #aa0000
+set_from_resource $background background #050505
+set_from_resource $highlight color2 #FF0000
+
 
 ##~~~ Global Font ~~~~~~~~~~~~~~~~~~~~~~ 
 ##
@@ -41,15 +50,14 @@ default_floating_border none
 ##~~~ Default Color Scheme (Everforest) 
 ##
 
-# client.background       #2b3339
-client.background       #050505
+client.background       $background
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #9f0812 #81A1C1 #D8DEE9 #9f0812   #9f0812
-client.focused_inactive #61AFEF #61AFEF #2E3440 #050505   #050505
-client.unfocused        #3B4252 #3B4252 #D8DEE9 #050505   #050505
-client.urgent           #BF616A #BF616A #D8DEE9 #d1040b   #d1040b
-client.placeholder      #2E3440 #2E3440 #D8DEE9 #cd8653   #cd8653
+# class                 border      backgr.     text    indicator       child_border
+client.focused          $highlight  $background #D8DEE9 $highlight     $highlight
+client.focused_inactive $highlight  $background #2E3440 #050505         $background
+client.unfocused        #3B4252     $background #D8DEE9 #050505         $background
+client.urgent           $highlight  #BF616A     #D8DEE9 #d1040b         $highlight
+client.placeholder      #2E3440     #2E3440     #D8DEE9 #cd8653         #cd8653
 
 
 ##~~~ Keybindings ~~~~~~~~~~~~~~~~~~~~~~
@@ -123,10 +131,13 @@ bindsym $mod+Shift+space floating toggle
 set $ws1 "1: Terminal"
 set $ws2 "2: Browser"
 set $ws3 "3: Mail"
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
+set $ws4 "4: Code" 
+set $ws5 "5: Music"
+set $ws6 "6: Chat"
+set $ws7 "7: Games"
+set $ws8 "8: VAM"
+set $ws9 "9: Blender"
+set $ws0 "10: CID"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -136,6 +147,9 @@ bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws0
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -145,6 +159,9 @@ bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws0
 
 
 
@@ -178,6 +195,7 @@ assign [class="LibreWolf"] $ws2
 assign [class="Geary"] $ws3
 assign [class="code-oss"] $ws4
 assign [class="Spotify"] $ws5
+assign [class="Blender"] $ws9
 #assign [class="VirtualBox Manager"] 7
 
 ##~~~ Rules For Windows ~~~~~~~~~~~~~~~~~~~~~~~ 
@@ -190,6 +208,7 @@ for_window [class="zoom"] floating enable
 for_window [class="feh|Viewnior|MPlayer"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="MEGAsync"] floating enable
+for_window [class="vlc"] floating enable
 
 ##~~~ Application Bindings ~~~~~~~~~~~~~~~~~~~
 

@@ -1,36 +1,31 @@
-/**
- * rofi -dump-theme output.
- * Rofi version: 1.7.2
- **/
 * {
-    red:                         rgba ( 220, 50, 47, 100 % );
-    selected-active-foreground:  rgba ( 249, 249, 249, 100 % );
-    lightfg:                     rgba ( 88, 104, 117, 100 % );
-    separatorcolor:              rgba ( 129, 31, 33, 20 % );
-    urgent-foreground:           rgba ( 204, 102, 102, 100 % );
-    alternate-urgent-background: rgba ( 75, 81, 96, 90 % );
-    lightbg:                     rgba ( 238, 232, 213, 100 % );
-    background-color:            transparent;
-    border-color:                rgba ( 124, 131, 137, 100 % );
-    normal-background:           var(background);
-    selected-urgent-background:  rgba ( 165, 66, 66, 100 % );
-    alternate-active-background: rgba ( 5, 5, 5, 89 % );
-    spacing:                     20;
-    alternate-normal-foreground: var(foreground);
-    blue:                        rgba ( 38, 139, 210, 100 % );
-    urgent-background:           rgba ( 29, 31, 33, 17 % );
-    selected-normal-foreground:  var(foreground);
-    active-foreground:           rgba ( 101, 172, 255, 100 % );
-    background:                  rgba ( 5, 5, 5, 60 % );
-    selected-normal-background:  rgba ( 159, 10, 18, 80 %  );
-    selected-active-background:  rgba ( 68, 145, 237, 100 % );
-    active-background:           rgba ( 29, 31, 33, 17 % );
-    alternate-normal-background: rgba ( 18, 18, 18, 60 % );
-    foreground:                  rgba ( 199, 198, 198, 100 % );
-    selected-urgent-foreground:  rgba ( 249, 249, 249, 100 % );
-    alternate-urgent-foreground: var(urgent-foreground);
-    normal-foreground:           var(foreground);
-    alternate-active-foreground: var(active-foreground);
+        active-background: #A3591D;
+        active-foreground: @foreground;
+        normal-background: @background;
+        normal-foreground: @foreground;
+        urgent-background: #595156;
+        urgent-foreground: @foreground;
+
+        alternate-active-background: @background;
+        alternate-active-foreground: @foreground;
+        alternate-normal-background: @background;
+        alternate-normal-foreground: @foreground;
+        alternate-urgent-background: @background;
+        alternate-urgent-foreground: @foreground;
+
+        selected-active-background: #595156;
+        selected-active-foreground: @foreground;
+        selected-normal-background: #A3591D;
+        selected-normal-foreground: @foreground;
+        selected-urgent-background: #C96F27;
+        selected-urgent-foreground: @foreground;
+
+        background-color: @background;
+        background: #bb060506;
+        foreground: #b5adbb;
+        border-color: @background;
+        spacing: 2;
+                                                                                                
 }
 window {
     padding:          20;

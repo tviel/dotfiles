@@ -1,9 +1,13 @@
 [color]
 
-background = #cc050505
-foreground = #c7c6c6
-highlight = #9f0812
-black = #3B4252
+alt-background = #AA161517
+# ${xrdb:background}
+foreground = ${xrdb:foreground}
+highlight = ${xrdb:color3}
+complementary = ${xrdb:color4}
+background = #99050505
+
+black = #050505
 red = #d1040b
 orange = #cd8653
 setback = #5d5859
@@ -13,7 +17,7 @@ blue = #81A1C1
 magenta = #B48EAD
 cyan = #88C0D0
 white = #E5E9F0
-altblack = #4C566A
+altblack = #cc050505
 altred = #BF616A
 altgreen = #A3BE8C
 altyellow = #EBCB8B

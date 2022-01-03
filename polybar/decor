@@ -1,37 +1,37 @@
 [module/spacing]
 type = custom/text
 content = " "
-content-background = ${color.background}
+content-background = ${color.alt-background}
 
 [module/sep]
 type = custom/text
 content = -
 
-content-background = ${color.background}
+content-background = ${color.alt-background}
 content-foreground = ${color.background}
 
 [module/dot]
 type = custom/text
-content = ""
+content = "  |  "
 
-content-font = 3
-content-background = ${color.background}
-content-foreground = ${color.altblack}
-content-padding = 1
+content-font = 2
+content-background = ${color.alt-background}
+content-foreground = ${color.complementary}
+content-padding = 0 
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/LD]
 type = custom/text
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 content-background = ${color.background}
-content-foreground = ${color.altblack}
+content-foreground = ${color.alt-background}
 
 [module/RD]
 type = custom/text
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 content-background = ${color.background}
-content-foreground = ${color.altblack}
+content-foreground = ${color.alt-background}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 

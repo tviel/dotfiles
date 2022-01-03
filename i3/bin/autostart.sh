@@ -6,9 +6,6 @@ xrandr --output "HDMI-A-0" --auto --output "HDMI-A-1" --left-of "HDMI-A-0" --aut
 # sets wallpaper using feh
 feh --no-fehbg --bg-scale "$HOME/.config/i3/gorilla_abstract.png"
 
-# polybar
-#$HOME/.config/i3/bin/launchbar.sh
-
 # Fix cursor
 xsetroot -cursor_name left_ptr
 
@@ -55,4 +52,4 @@ fi
 
 megasync
 dropbox
-
+flameshot

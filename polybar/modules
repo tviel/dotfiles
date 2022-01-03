@@ -72,31 +72,32 @@ format-volume = <ramp-volume>
 format-muted = <label-muted>
 format-muted-prefix = " "
 format-muted-prefix-font = 2
-format-muted-prefix-foreground = ${color.foreground}
-format-muted-prefix-background = ${color.background}
+format-muted-prefix-foreground = ${color.highlight}
+format-muted-prefix-background = ${color.alt-background}
 
 label-volume = "%percentage%% "
-label-muted = "Mute"
+label-muted = "-----"
+label-muted-font = 2
 
 label-volume-background = ${color.background}
-label-muted-background = ${color.background}
+label-muted-background = ${color.alt-background}
 
-label-volume-foreground = ${color.orange}
-label-muted-foreground = ${color.highlight}
+label-volume-foreground = ${color.highlight}
+label-muted-foreground = ${color.complementary}
 
-ramp-volume-0 = " |...."
-ramp-volume-1 = " |...."
-ramp-volume-2 = " |...."
-ramp-volume-3 = " ||..."
-ramp-volume-4 = " ||..."
-ramp-volume-5 = " ||..."
-ramp-volume-6 = " |||.."
-ramp-volume-7 = " |||.."
-ramp-volume-8 = " ||||."
-ramp-volume-9 = " |||||"
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
+ramp-volume-3 = " "
+ramp-volume-4 = " "
+ramp-volume-5 = " "
+ramp-volume-6 = " "
+ramp-volume-7 = " "
+ramp-volume-8 = " "
+ramp-volume-9 = " "
 ramp-volume-font = 2
-ramp-volume-foreground = ${color.orange}
-ramp-volume-background = ${color.background}
+ramp-volume-foreground = ${color.highlight}
+ramp-volume-background = ${color.alt-background}
 
 ramp-headphones-0 = 
 ramp-headphones-1 = 
@@ -174,46 +175,51 @@ reverse-scroll = false
 
 fuzzy-match = true
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
+ws-icon-0 = 1;  TERM
+ws-icon-1 = 2;  WEB
+ws-icon-2 = 3;  MAIL
+ws-icon-3 = 4;  CODE
+ws-icon-4 = 5;  MUSIC
+ws-icon-5 = 6;  CHAT
+ws-icon-6 = 7;  GAMES
+ws-icon-7 = 8;  VAM
+ws-icon-8 = 9;  BLENDER
+ws-icon-9 = 0; CID
+
 format = <label-state><label-mode>
-format-background = ${color.background}
+format-background = ${color.alt-background}
+# format-font = 2 
 
 label-mode = %mode%
 label-mode-padding = 1
-label-mode-background = ${color.background}
+label-mode-background = ${color.alt-background}
 label-mode-foreground = ${color.yellow}
 
 label-focused = %icon%
-label-focused-foreground = ${color.orange}
-label-focused-background = ${color.background}
+label-focused-foreground = ${color.highlight}
+label-focused-background = ${color.alt-background}
 
 label-unfocused = %icon%
 label-unfocused-foreground = ${color.setback}
-label-unfocused-background = ${color.background}
+label-unfocused-background = ${color.alt-background}
 
 label-visible = %icon%
 label-visible-foreground = ${color.foreground}
-label-visible-background = ${color.background}
+label-visible-background = ${color.alt-background}
 
 label-urgent = %icon%
-label-urgent-foreground = ${color.red}
-label-urgent-background = ${color.background}
+label-urgent-foreground = ${color.highlight}
+label-urgent-background = ${color.alt-background}
 
-label-focused-padding = 1
-label-unfocused-padding = 1
-label-visible-padding = 1
-label-urgent-padding = 1
+label-focused-padding = 2 
+label-unfocused-padding = 2
+label-visible-padding = 2
+label-urgent-padding = 2
 
 label-separator = ""
 label-separator-padding = 2
 ;label-separator-foreground = ${color.foreground}
-label-separator-background = ${color.background}
+label-separator-background = ${color.alt-background}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -237,12 +243,13 @@ time = "%I:%M %p"
 time-alt = "%A, %m/%d/%y"
 
 format-prefix = 
-format-prefix-foreground = ${color.foreground}
-format-prefix-background = ${color.background}
+format-prefix-foreground = ${color.complementary}
+format-prefix-background = ${color.alt-background}
+format-prefix-font = 2
 
 label = %time%
-label-foreground = ${color.foreground}
-label-background = ${color.background}
+label-foreground = ${color.complementary}
+label-background = ${color.alt-background}
 label-padding = 1
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -291,11 +298,11 @@ label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
 [module/launcher]
 type=custom/text
 content = 
-content-font = 4
-content-foreground= ${color.red}
-content-background = ${color.background} 
-content-padding=1
-click-left=def-dmenu
+content-font = 2
+content-foreground= ${color.highlight}
+content-background = ${color.alt-background} 
+content-padding=2
+click-left = rofi -show run
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -315,30 +322,26 @@ interval = 1.0
 accumulate-stats = true
 unknown-as-up = true
 
-format-connected = <ramp-signal><label-connected>
-# format-connected = <label-connected>
+format-connected = <ramp-signal> <label-connected>
 
 format-disconnected = <label-disconnected>
 format-disconnected-prefix = "睊"
 format-disconnected-prefix-font = 2
-#format-disconnected-foreground = ${color.setback}
-#format-disconnected-background = ${color.background}
 
-# label-connected = "%{A1:def-nmdmenu &:}%essid%%{A}"
-label-connected = "%essid%"
+label-connected = "%{A1:def-nmdmenu &:}%essid%%{A}"
 label-disconnected = "%{A1:def-nmdmenu &:}Offline%{A}"
 
-label-connected-foreground = ${color.orange}
-label-disconnected-foreground = ${color.foreground}
+label-connected-foreground = ${color.highlight}
+label-disconnected-foreground = ${color.complementary}
 
-label-connected-background = ${color.background}
-label-disconnected-background = ${color.background}
+label-connected-background = ${color.alt-background}
+label-disconnected-background = ${color.alt-background}
 
-ramp-signal-0 = ""
-ramp-signal-1 = ""
-ramp-signal-2 = ""
-ramp-signal-3 = ""
-ramp-signal-4 = ""
-ramp-signal-foreground = ${color.orange}
-ramp-signal-background = ${color.background}
+ramp-signal-0 = " "
+ramp-signal-1 = " "
+ramp-signal-2 = " "
+ramp-signal-3 = " "
+ramp-signal-4 = " "
+ramp-signal-foreground = ${color.highlight}
+ramp-signal-background = ${color.alt-background}
 ramp-signal-font = 2 
