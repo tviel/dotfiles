@@ -254,11 +254,11 @@ ramp-coreload-7 = █
 type = internal/date
 interval = 1
 format-margin = 0
-time = "%I:%M %p"
-time-alt = "%A, %m/%d/%y"
+time = "%H:%M:%S"
+time-alt = "%A, %Y-%m-%d"
 
 
-format-prefix = 
+format-prefix = " "
 format-prefix-foreground = ${color.complementary}
 format-prefix-background = ${color.alt-background}
 format-prefix-font = 2
@@ -416,5 +416,45 @@ format-prefix = " "
 format-prefix-font = 2
 format-prefix-foreground = ${color.complementary}
 
+[module/spotify]
+type = custom/script
+#tail = true
 
+format-foreground = ${color.complementary}
+format-background = ${color.alt-background}
+format-prefix = " "
+format = <label>
+format-prefix-font = 2
+exec = ~/.config/polybar/scripts/get_spotify_status.sh
 
+[module/playerctl-prev]
+type = custom/script
+exec = echo ""
+format = <label>
+format-foreground = ${color.complementary}
+format-background = ${color.alt-background}
+format-font = 2
+click-left = playerctl previous -p spotify
+format-padding = 1
+
+[module/playerctl-play-pause]
+type = custom/ipc
+format = <output>
+format-foreground = ${color.complementary}
+format-background = ${color.alt-background}
+format-font = 2
+format-padding = 1 
+hook-0 = echo ""
+hook-1 = echo ""
+initial = 1
+click-left = playerctl play-pause -p spotify
+
+[module/playerctl-next]
+type = custom/script
+exec = echo ""
+format = <label>
+format-foreground = ${color.complementary}
+format-background = ${color.alt-background}
+format-font = 2
+format-padding = 1 
+click-left = playerctl next -p spotify
