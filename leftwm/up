@@ -1,0 +1,18 @@
+#!/bin/sh
+
+xrandr --output "HDMI-A-0" --auto --output "HDMI-A-1" --left-of "HDMI-A-0" --auto
+
+# kill if already running
+killall -9 xfce4-power-manager ksuperkey dunst sxhkd
+
+# sets superkey
+ksuperkey -e 'Super_L=Alt_L|F1' &
+ksuperkey -e 'Super_R=Alt_L|F1' &
+
+# start polkit and power manager
+if [[ ! `pidof xfce-polkit`  ]]; then
+   /usr/lib/xfce-polkit/xfce-polkit &
+fi
+xfce4-power-manager &
+
+sxhkd &

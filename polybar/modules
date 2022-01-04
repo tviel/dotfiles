@@ -458,3 +458,46 @@ format-background = ${color.alt-background}
 format-font = 2
 format-padding = 1 
 click-left = playerctl next -p spotify
+
+[module/updates]
+type = custom/script
+exec = { paru -Qua; pacman -Qu;  } | wc -l
+
+interval = 100
+label = %output%
+
+format-foreground = ${color.complementary}
+format-background = ${color.alt-background}
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-foreground = ${color.complementary}
+
+[module/sysmenu]
+type = custom/text
+
+content = 襤
+content-foreground = ${color.fg}
+content-font = 2
+
+click-left = $HOME/.config/leftwm/themes/current/rofi/powermenu.sh
+click-right = $HOME/.config/leftwm/themes/current/rofi/powermenu.sh
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = true
+enable-scroll = true
+format = <label-state>
+label-monitor = %name%
+
+[module/leftwm0]
+type = custom/script
+exec = leftwm-state -w 0 -t "$HOME/.config/leftwm/themes/current/template.liquid"
+tail = true
+label = %output%
+label-padding = 2 
+label-alignment = center
+label-font = 1 
+label-underline = ${color.alt-background}
+format-foreground = ${color.complementary}
+format-background = ${color.alt-background}
