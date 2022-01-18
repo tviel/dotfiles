@@ -461,7 +461,7 @@ click-left = playerctl next -p spotify
 
 [module/updates]
 type = custom/script
-exec = { paru -Qua; pacman -Qu;  } | wc -l
+exec = { paru -Qua; pamac checkupdates;  } | wc -l
 
 interval = 100
 label = %output%

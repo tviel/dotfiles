@@ -23,8 +23,8 @@ alt + F1
     rofi -show run
 
 # Launch Menus
-super + {x,n,d,e}
-    {powermenu,def-nmdmenu,rofi -show run,nemo}
+super + {x,n,d}
+    {powermenu,def-nmdmenu,rofi -show run}
 
 # Lock Screen
 super + l

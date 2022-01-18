@@ -1,0 +1,23 @@
+[global]
+transparency = 10 
+padding = 20
+frame-width = 1
+font = Noto Sans Nerd Font 10
+progress-bar = true
+indicate-hidden = yes
+separator_color = "#AA0000"
+corner_radius = 12 
+
+background = "#161517"
+foreground = "#c4c4c5" 
+frame_color = "#33050505"
+
+[urgency_normal]
+background = "#326295"
+foreground = "#c4c4c5" 
+frame_color = "#33050505"
+
+[urgency_critical]
+background = "#722239"
+frame_color = "#33050505"
+foreground = "#c4c4c5" 

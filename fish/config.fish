@@ -14,6 +14,7 @@ if status is-interactive
     alias pipes='pipes -p 5 -R -t 1 -r 0'
     alias v='vim'
     alias pac='pacman'
+    alias eve='env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/1'
     colorscript -r
 
     cat ~/.cache/wal/sequences

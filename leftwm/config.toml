@@ -1,6 +1,9 @@
 modkey = "Mod4"
-workspaces = []
-tags = [" TERM", " WEB", " MAIL", " CODE", " MUSIC"," CHAT"," GAMES", " VAM"," BLENDER", " CID"]
+workspaces = [
+    { "id"= 0, "height"=2160, "width"=3840, "x"=1920, "y"=0 }, ## HDMI-A-0 (4k)
+    { "id"= 1, "height"=1080, "width"=1920, "x"=0, "y"=0 }, ## HDMI-A-1 (xppen)
+]
+tags = [" TERM", " WEB", " MAIL", " CODE", " MUSIC"," CHAT"," GAMES", " VAM"," BLENDER", " CID", " VIRT"]
 
 
 ## Layouts
@@ -18,7 +21,7 @@ layouts = [
     #"LeftWiderRightStack",
     "Monocle",
 ]
-
+layout_mode = "Tag"
 
 ## Window Focus
 focus_behaviour = "Sloppy" # Can be Sloppy, ClickTo, or Driven
@@ -26,6 +29,7 @@ focus_new_windows = true
 
 
 scratchpad = [
+    { name = "Filemanager", value="alacritty -e ranger", x=960, y=540, width=1920, height=1080 },
     { name = "Todoist", value="todoist", x=960, y=540, width=1920, height=1080 },
     { name = "Joplin", value="joplin-desktop", x=960, y=540, width=1920, height=1080 },
 ]
@@ -45,7 +49,7 @@ keybind = [
   { command = "IncreaseMainWidth", value = "5", modifier = ["modkey"], key = "l" },
   { command = "DecreaseMainWidth", value = "5", modifier = ["modkey"], key = "h" },
 
-  { command = "FloatingToTile", modifier = ["modkey"], key = "t" },
+  { command = "FloatingToTile", modifier = ["modkey","Shift"], key = "t" },
   { command = "ToggleFullScreen", modifier = ["modkey"], key = "f" },
 
   { command = "MoveWindowUp", modifier = ["modkey", "Shift"], key = "Right" },
@@ -57,6 +61,7 @@ keybind = [
   { command = "SwapTags", modifier = ["modkey"], key = "w" },
   { command = "ToggleScratchPad", value="Todoist", modifier = ["modkey"], key = "t" },
   { command = "ToggleScratchPad", value="Joplin", modifier = ["modkey"], key = "n" },
+  { command = "ToggleScratchPad", value="Filemanager", modifier = ["modkey"], key = "e" },
 
   ## Switch Layouts
   { command = "NextLayout", modifier = ["modkey", "Control"], key = "Right" },
@@ -73,6 +78,7 @@ keybind = [
   { command = "GotoTag", value = "8", modifier = ["modkey"], key = "8" },
   { command = "GotoTag", value = "9", modifier = ["modkey"], key = "9" },
   { command = "GotoTag", value = "10", modifier = ["modkey"], key = "0" },
+  { command = "GotoTag", value = "11", modifier = ["modkey","Alt"], key = "1" },
 
   ## Move Windows From One Tag to Another
   { command = "MoveToTag", value = "1", modifier = ["modkey", "Shift"], key = "1" },
@@ -85,5 +91,6 @@ keybind = [
   { command = "MoveToTag", value = "8", modifier = ["modkey", "Shift"], key = "8" },
   { command = "MoveToTag", value = "9", modifier = ["modkey", "Shift"], key = "9" },
   { command = "MoveToTag", value = "10", modifier = ["modkey", "Shift"], key = "0" },
+  { command = "MoveToTag", value = "11", modifier = ["modkey","Alt", "Shift"], key = "1" },
 ]
 
