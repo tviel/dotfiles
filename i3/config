@@ -143,6 +143,7 @@ set $ws7 "7: Games"
 set $ws8 "8: VAM"
 set $ws9 "9: Blender"
 set $ws0 "10: CID"
+set $ws10 "11: Virt"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -155,6 +156,7 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws0
+bindsym $mod+$alt+1 workspace number $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -167,14 +169,20 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws0
+bindsym $mod+$alt+Shift+0 move container to workspace number $ws0
 
 # bind workspace to monitor
-workspace $ws3 output $monitor-right
-workspace $ws2 output $monitor-left
+#workspace $ws3 output $monitor-right
+#workspace $ws2 output $monitor-left
 
 # scratchpads
 bindsym $alt+Ctrl+s move scratchpad
 bindsym $alt+s scratchpad show
+
+bindsym $mod+e [title="Filemanager"] scratchpad show
+bindsym $mod+t [class="Todoist"] scratchpad show
+bindsym $mod+n [class="Joplin"] scratchpad show
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -207,7 +215,6 @@ assign [class="Geary"] $ws3
 assign [class="code-oss"] $ws4
 assign [class="Spotify"] $ws5
 assign [class="Blender"] $ws9
-#assign [class="VirtualBox Manager"] 7
 
 ##~~~ Rules For Windows ~~~~~~~~~~~~~~~~~~~~~~~ 
 ##
@@ -220,8 +227,9 @@ for_window [class="feh|Viewnior|MPlayer"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="MEGAsync"] floating enable
 for_window [class="vlc"] floating enable
+for_window [title="Filemanager"] move scratchpad
 for_window [class="Todoist"] move scratchpad
-
+for_window [class="Joplin"] move scratchpad
 ##~~~  ~~~~~~~~~~~~~~~~~~~
 
 
