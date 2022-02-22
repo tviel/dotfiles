@@ -1,0 +1,7 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* set default namespace to XUL */
+
+treechildren::-moz-tree-row {
+    margin-bottom: 6px !important;
+    margin-top: 3px !important;
+        
+}

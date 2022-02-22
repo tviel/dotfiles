@@ -77,7 +77,7 @@ format-muted-prefix-background = ${color.alt-background}
 
 label-volume = "%percentage%% "
 label-muted = "-----"
-label-muted-font = 2
+label-muted-font = 3
 
 label-volume-background = ${color.background}
 label-muted-background = ${color.alt-background}
@@ -85,16 +85,16 @@ label-muted-background = ${color.alt-background}
 label-volume-foreground = ${color.highlight}
 label-muted-foreground = ${color.complementary}
 
-ramp-volume-0 = " "
-ramp-volume-1 = " "
-ramp-volume-2 = " "
-ramp-volume-3 = " "
-ramp-volume-4 = " "
-ramp-volume-5 = " "
-ramp-volume-6 = " "
-ramp-volume-7 = " "
-ramp-volume-8 = " "
-ramp-volume-9 = " "
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
+ramp-volume-3 = " "
+ramp-volume-4 = " "
+ramp-volume-5 = " "
+ramp-volume-6 = " "
+ramp-volume-7 = " "
+ramp-volume-8 = " "
+ramp-volume-9 = " "
 ramp-volume-font = 2
 ramp-volume-foreground = ${color.highlight}
 ramp-volume-background = ${color.alt-background}
@@ -323,7 +323,7 @@ bar-used-empty-foreground = ${color.background}
 [module/launcher]
 type=custom/text
 content = 
-content-font = 2
+content-font = 3
 content-foreground= ${color.highlight}
 content-background = ${color.alt-background} 
 content-padding=2
@@ -362,11 +362,11 @@ label-disconnected-foreground = ${color.complementary}
 label-connected-background = ${color.alt-background}
 label-disconnected-background = ${color.alt-background}
 
-ramp-signal-0 = "  "
-ramp-signal-1 = "  "
-ramp-signal-2 = "  "
-ramp-signal-3 = "  "
-ramp-signal-4 = "  "
+ramp-signal-0 = "  "
+ramp-signal-1 = "  "
+ramp-signal-2 = "  "
+ramp-signal-3 = "  "
+ramp-signal-4 = "  "
 ramp-signal-foreground = ${color.highlight}
 ramp-signal-background = ${color.alt-background}
 ramp-signal-font = 2 
@@ -376,7 +376,7 @@ type = internal/network
 interface = ${system.network_interface}
 label-connected = "%ifname%"
 format-connected = <label-connected>
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-prefix-font = 2
 format-connected-prefix-foreground = ${color.complementary}
 format-connected-foreground = ${color.complementary}
@@ -476,7 +476,7 @@ format-prefix-foreground = ${color.complementary}
 type = custom/text
 
 content = 襤
-content-foreground = ${color.fg}
+content-foreground = ${color.complementary}
 content-font = 2
 
 click-left = $HOME/.config/leftwm/themes/current/rofi/powermenu.sh
@@ -501,3 +501,93 @@ label-font = 1
 label-underline = ${color.alt-background}
 format-foreground = ${color.complementary}
 format-background = ${color.alt-background}
+
+
+[module/dwm]
+type = internal/dwm
+format = <label-tags> <label-layout> <label-floating>
+; Path to dwm socket (default: /tmp/dwm.sock)
+; socket-path = /tmp/dwm.sock
+
+; Left-click to view tag, right-click to toggle tag view
+enable-tags-click = true 
+; Scroll to cycle between available tags
+enable-tags-scroll = true
+; If true and enable-tags-scroll = true, scrolling will view all tags regardless if occupied
+tags-scroll-empty = true
+; If true and enable-tags-scroll = true, scrolling will cycle through tags backwards
+tags-scroll-reverse = false
+; If true and enable-tags-scroll = true, wrap active tag when scrolling
+tags-scroll-wrap = true
+; Left-click to set secondary layout, right-click to switch to previous layout
+enable-layout-click = false 
+; Scroll to cycle between available layouts
+enable-layout-scroll = true
+; Wrap when scrolling and reaching beginning/end of layouts
+layout-scroll-wrap = true
+; Reverse scroll direction
+layout-scroll-reverse = false
+
+; If enable-layout-click = true, clicking the layout symbol will switch to this layout
+secondary-layout-symbol = [M]
+
+; Separator in between shown tags
+label-separator = |
+label-separator-foreground = ${color.complementary}
+label-separator-background = ${color.alt-background}
+
+; Title of currently focused window
+; Available tokens:
+;   %title%
+label-title = %title%
+label-title-padding = 2
+label-title-foreground = ${color.complementary}
+label-title-maxlen = 30
+
+; Defaults to 'Desktop'
+label-title-default = "Desktop"
+
+; Symbol of current layout
+; Available tokens:
+;   %symbol%
+label-layout = " %symbol% "
+label-layout-padding = 2
+label-layout-foreground = ${color.highlight}
+label-layout-background = ${color.alt-background}
+
+; Text to show when currently focused window is floating
+label-floating = F
+
+; States: focused, unfocused, visible, urgent, empty
+; Available tokens:
+;   %name%
+
+; focused = Selected tag on focused monitor
+label-focused = "  %name%  "
+label-focused-foreground = ${color.highlight}
+label-focused-background = ${color.alt-background}
+label-focused-underline= ${color.highlight}
+label-focused-padding = 2
+
+; unfocused = Unselected tag on unselected monitor
+label-unfocused = "  %name%  "
+label-unfocused-padding = 2
+
+; visible = Unselected tag, but occupied tag on any monitor
+label-visible = "  %name%  "
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Unselected tag with window that has urgency hint set
+label-urgent = "  %name%  "
+label-urgent-background = ${self.label-focused-background}
+label-urgent-padding = 2
+
+; empty = Unselected and unoccupied tag
+; This can be set to an empty string to hide empty tags
+label-empty = "  %name%  "
+label-empty-foreground = ${color.complementary}
+label-empty-background = ${self.label-focused-background}
+label-empty-padding = 2
+

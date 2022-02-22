@@ -18,19 +18,10 @@ monitor =
 monitor-fallback =
 monitor-strict = false
 
-override-redirect = false
-
 bottom = false
 fixed-center = true
 
 height = 42 
-
-offset-x = 0%
-offset-y = 0%
-
-
-radius-top = 0.0
-radius-bottom = 0.0
 
 line-size = 1 
 line-color = ${color.blue}
@@ -38,18 +29,12 @@ line-color = ${color.blue}
 border-top-size = 0 
 border-color = ${color.highlight}
 
-
 module-margin-left = 0
 module-margin-right = 0
 
-
-# Default
 modules-left = spacing launcher RD 
 modules-center = LD spacing i3 leftwm0 spacing RD
 modules-right = LD network dot volume dot time dot sysmenu
-
-spacing = 0
-dim-value = 0.9
 
 tray-position = right
 tray-detached = false
@@ -60,12 +45,32 @@ tray-offset-y = 0
 tray-padding = 1 
 tray-scale = 1.0
 
-enable-ipc = true
-
 cursor-click = 
 cursor-scroll =
 
+[bar/dwm]
+inherit = bar/base
+bottom=false
+height=32
 
+module-margin-left = 0
+module-margin-right = 0
+
+modules-left = launcher RD
+modules-center = LD spacing dwm spacing RD
+modules-right = LD spacing network dot volume dot time dot sysmenu spacing
+
+line-size = 1 
+line-color = ${color.blue}
+
+tray-position = right 
+tray-detached = false
+tray-maxsize = 16
+tray-background = ${color.alt-background}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 1 
+tray-scale = 1.0
 
 [bar/status]
 inherit = bar/base
@@ -85,17 +90,25 @@ width = 100%
 
 padding = 0 
 
+override-redirect = false
 background = ${color.background}
 foreground = ${color.foreground}
 
 font-0 = "Noto Sans Nerd Font:size=10;1.5"
-font-1 = "JetBrainsMono Nerd Font:size=13;3"
-font-2 = "JetBrainsMono Nerd Font:size=20;3"
+font-1 = "JetBrainsMono Nerd Font Mono:size=20;4"
+font-2 = "JetBrainsMono Nerd Font Mono:size=24;7"
 font-3 = "Iosevka Nerd Font:size=14;4"
 
 enable-ipc = true
 
+offset-x = 0%
+offset-y = 0%
 
+radius-top = 0.0
+radius-bottom = 0.0
+
+spacing = 0
+dim-value = 0.9
 
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_

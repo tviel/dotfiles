@@ -13,7 +13,11 @@
     ~/.config/sxhkd: sxhkd
     ~/.config/dunst: dunst
     ~/.config/leftwm: leftwm
+    ~/.config/picom: picom
+    ~/.dwm: dwm
     ~/.Xresources: .Xresources
+    ~/.vimrc: vimrc
+    ~/.config/nvim/init.vim: vimrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

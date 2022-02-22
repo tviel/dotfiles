@@ -5,8 +5,8 @@
 
 ## Import files (Colors, Fonts, Etc)
 import:
-  - ~/.config/i3/alacritty/colors.yml
-  - ~/.config/i3/alacritty/fonts.yml
+  - ~/.config/alacritty/colors.yml
+  - ~/.config/alacritty/fonts.yml
 
 ## Set environment variables
 env:
@@ -15,8 +15,8 @@ env:
 ## Terminal window settings
 window:
   dimensions:
-    columns: 82
-    lines: 25
+    columns: 240
+    lines: 60
 
   padding:
     x: 12
@@ -31,8 +31,8 @@ window:
   multiplier: 3
 
 ## Background opacity
-# background_opacity: 0.8 
-window.opacity: 0.8
+window:
+  opacity: 0.8
 
 ## Cursor
 cursor:

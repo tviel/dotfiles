@@ -12,9 +12,11 @@ if status is-interactive
     alias matrix='unimatrix -f -l ocCgGkS -s 96'
     alias clock='tty-clock -sct -C 4'
     alias pipes='pipes -p 5 -R -t 1 -r 0'
-    alias v='vim'
+    alias v='nvim'
     alias pac='pacman'
     alias eve='env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/1'
+    alias d='docker'
+    alias dc='docker-compose'
     colorscript -r
 
     cat ~/.cache/wal/sequences
