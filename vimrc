@@ -16,8 +16,6 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 filetype plugin on
 
@@ -50,6 +48,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'OmniSharp/omnisharp-vim'
@@ -66,7 +68,8 @@ call plug#end()
 
 set background=dark
 let g:sonokai_style='shusia'
-colorscheme sonokai
+colorscheme gruvbox
+"sonokai
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -88,6 +91,12 @@ lua << EOF
 require("bufferline").setup{}
 EOF
 
+" has to be set after loading the colorscheme to keep transparency
+set colorcolumn=80
+hi ColorColumn ctermbg=0 guibg=black 
+"lightgrey
+hi Normal ctermbg=None guibg=None
+hi NonText ctermbg=None guibg=None
 
 let mapleader = " "
 
@@ -105,7 +114,6 @@ nnoremap <leader>gr <Plug>(coc-references)
 "gr clashes with replaceWithregister
 
 nnoremap <leader>e :CocCommand explorer<CR>
-nnoremap <leader>f :CocCommand explorer --preset floating<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
 nnoremap <silent><tab> :BufferLineCycleNext<CR>
