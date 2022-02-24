@@ -22,7 +22,7 @@ window:
     x: 12
     y: 12
 
-  decorations: full
+  decorations: none
   startup_mode: Windowed
   dynamic_title: true
 
