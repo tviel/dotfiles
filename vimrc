@@ -30,6 +30,8 @@ set guifont=Inconsolata:h12
 " neovide
 let g:neovide_transparency=0.8
 
+" airline
+let g:airline#extensions#bufferline#enabled=1
 
 call plug#begin('~/.vim/plugged') "use vim standard also with neovim to be cross
 " The default plugin directory will be as follows:
@@ -48,16 +50,23 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+Plug 'akinsho/bufferline.nvim'
 
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'sainnhe/sonokai'
 
 " Initialize plugin system
 call plug#end()
 
 set background=dark
-colorscheme gruvbox
+let g:sonokai_style='shusia'
+colorscheme sonokai
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -74,6 +83,11 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
+lua << EOF
+require("bufferline").setup{}
+EOF
+
 
 let mapleader = " "
 
@@ -93,6 +107,10 @@ nnoremap <leader>gr <Plug>(coc-references)
 nnoremap <leader>e :CocCommand explorer<CR>
 nnoremap <leader>f :CocCommand explorer --preset floating<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+nnoremap <silent><tab> :BufferLineCycleNext<CR>
+nnoremap <silent><s-tab> :BufferLineCyclePrev<CR>
+
 
 nmap <c-c> "+y
 vmap <c-c> "+y
