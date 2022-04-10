@@ -62,13 +62,14 @@ Plug 'akinsho/bufferline.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'sainnhe/sonokai'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Initialize plugin system
 call plug#end()
 
 set background=dark
 let g:sonokai_style='shusia'
-colorscheme gruvbox
+colorscheme gruvbox 
 "sonokai
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.

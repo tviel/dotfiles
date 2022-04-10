@@ -144,4 +144,4 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "/home/tviel/.config/rofi/theme.rasi"
+@theme "/home/tviel/.config/rofi/themes/gruvbox/gruvbox-dark.rasi"

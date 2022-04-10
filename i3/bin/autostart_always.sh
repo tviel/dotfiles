@@ -1,5 +1,4 @@
 #!/bin/env bash
 
-./launchbar.sh
-
+$HOME/.config/i3/bin/launchbar.sh
 

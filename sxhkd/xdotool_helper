@@ -1,0 +1,11 @@
+#!/bin/fish
+
+
+set window (xdotool search "Obsidian")
+
+echo $window
+
+#xdotool getactivewindow windowactivate --sync key z
+#xdotool key --window (xdotool getactivewindow) z
+
+xdotool search --class Obsidian windowactivate --sync %1 key z windowactivate (xdotool getactivewindow)

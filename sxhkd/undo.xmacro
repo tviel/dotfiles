@@ -1,0 +1,5 @@
+KeyStrPress Control_L
+Delay 213
+KeyStrPress y
+KeyStrRelease y
+KeyStrRelease Control_L

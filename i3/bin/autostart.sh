@@ -1,27 +1,23 @@
 #!/bin/env bash
 
 # set monitor setup
-xrandr --output "HDMI-A-0" --auto --output "HDMI-A-1" --left-of "HDMI-A-0" --auto
+xrandr --output "DisplayPort-1" --auto --primary --output "HDMI-A-1" --left-of "DisplayPort-1" --auto
 
 # sets wallpaper using feh
-feh --no-fehbg --bg-scale "$HOME/.config/i3/gorilla_abstract.png"
+feh --no-fehbg --bg-scale "$HOME/.dotfiles/wallpapers/knight.jpg"
 
 # Fix cursor
 xsetroot -cursor_name left_ptr
 
+# map XPPen
+xsetwacom --set "17" MapToOutput HDMI-A-1
+
 # kill if already running
-killall -9 picom xfce4-power-manager ksuperkey dunst sxhkd conky eww
-
-# Launch Conkeww
-#sed -i "s/colors\/color-.*/colors\/color-nord.yuck\")/g" $HOME/.config/conkeww/eww.yuck
-#eww --config $HOME/.config/conkeww/ open conkeww-main
-
-# Launch Conky
-#conky -c $HOME/.config/conky/axyl.conkyrc
+killall -9 picom xfce4-power-manager dunst sxhkd 
 
 # sets superkey
-ksuperkey -e 'Super_L=Alt_L|F1' &
-ksuperkey -e 'Super_R=Alt_L|F1' &
+#ksuperkey -e 'Super_L=Alt_L|F1' &
+#ksuperkey -e 'Super_R=Alt_L|F1' &
 
 # start hotkey daemon
 sxhkd &
@@ -33,12 +29,16 @@ dunst -config $HOME/.config/i3/dunstrc &
 xfce4-power-manager &
 
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
-picom --config $HOME/.config/i3/picom.conf &
+picom &
+#picom --config $HOME/.config/picom/picom.conf &
 
 # start polkit
-if [[ ! `pidof xfce-polkit` ]]; then
-    /usr/lib/xfce-polkit/xfce-polkit &
-fi
+#if [[ ! `pidof xfce-polkit` ]]; then
+#    /usr/lib/xfce-polkit/xfce-polkit &
+#fi
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 
 # start udiskie
 #udiskie &
@@ -49,6 +49,8 @@ fi
 # change xfce4-terminal colorscheme
 #XFCE_TERM_PATH="$HOME/.config/xfce4/terminal"
 #cp "$XFCE_TERM_PATH"/colorschemes/nord "$XFCE_TERM_PATH"/terminalrc
+
+glava --desktop --force-mod radial
 
 megasync
 dropbox

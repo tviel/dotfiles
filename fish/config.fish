@@ -17,8 +17,8 @@ if status is-interactive
     alias eve='env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/1'
     alias d='docker'
     alias dc='docker-compose'
-    colorscript -r
+#    colorscript -r
 
-    cat ~/.cache/wal/sequences
+#    cat ~/.cache/wal/sequences
 
 end

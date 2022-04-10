@@ -18,9 +18,6 @@
     ~/.Xresources: .Xresources
     ~/.vimrc: vimrc
     ~/.config/nvim/init.vim: vimrc
-    ~/.config/glava: glava
-    ~/.config/bspwm: bspwm
-    ~/.config/eww: eww
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

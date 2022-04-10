@@ -1,0 +1,128 @@
+#
+# wm independent hotkeys
+#
+
+# reloads sxhkd configuration:
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# Launch Terminal
+super + Return
+    alacritty --config-file /home/tviel/.config/alacritty/alacritty.yml
+
+
+# Launch Menus
+super + {x,n,d}
+    {powermenu,def-nmdmenu,rofi -show run}
+
+# Lock Screen
+super + l
+    lock
+
+# custom dmenu scripts
+alt + {e,l}
+    {edit-configs, quick-links}
+
+# Launch Applications
+super + shift + {e,w}
+    {nemo,brave}
+
+# Volume controls
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+    volume{ --up, --down, --toggle}
+
+# Brightness controls
+XF86MonBrightness{Up,Down}
+    brightness{ --up, --down}
+
+# screenshot
+Print
+    flameshot gui 
+
+#
+# XPPen Macro keys
+# XPPen Keyboard keys have been mapped by hwdb to these function keys
+#
+#
+
+XF86Launch7
+    notify-send "Undo" && /home/tviel/.config/sxhkd/xmacroplay -d 10 :0.0 < /home/tviel/.config/sxhkd/undo.xmacro
+
+#XF86Tools
+#    /home/tviel/.config/sxhkd/xdotool_helper z
+
+#XF86Launch7
+#    notify-send "XP UNDO" && xdotool type "HELLO" 
+
+#XF86TouchpadToggle
+#    notify-send "XP UNDO" && xdotool windowactivate --sync 52428801 && xdotool key --window 52428801 z
+
+
+#
+# i3wm specific shortcuts
+#
+
+# i3
+
+super + q
+    i3-msg kill
+
+super + shift + c
+    i3-msg reload
+
+super + shift + r
+    i3-msg restart
+
+# movement
+
+super + {h,j,k,l}
+    i3-msg focus {left,down,up,right}
+
+super + shift {h,j,k,l}
+    i3-msg move {left,down,up,right}
+
+super + {v,b}
+    i3-msg split {v,h}
+
+super + f 
+    i3-msg fullscreen toggle
+
+super + space 
+    i3-msg focus mode_toggle
+
+super + shift + space
+    i3-msg floating toggle
+
+super + a
+    i3-msg focus parent
+
+super + ctrl + {l,j,k,h}
+    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+
+
+# workspace handling
+
+super + {1-9,0}
+    i3-msg workspace {1-9,10}
+
+super + alt + {1,2,3,4,,6,7,8,9}
+    i3-msg workspace {11,12,13,14,15,16,17,18,19}
+
+super + shift + {1-9,0}
+    i3-msg move container to workspace number {1-9,0}
+
+super + alt + shift + {1,2,3,4,5,6,7,8,9}
+    i3-msg move container to workspace number {11,12,13,14,15,16,17,18,19}
+
+super + alt {j,l}
+    i3-msg move workspace to output {left,right}
+
+# scratchpads
+
+super + o
+    i3run --class obsidian -- obsidian
+
+super + e
+    i3run --class fm -- alacritty --class fm,fm -e ranger
+
+
