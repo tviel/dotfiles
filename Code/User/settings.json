@@ -4,5 +4,6 @@
         "terminal.background": "#181818",
         "sideBar.background": "#181818"
     },
-    "workbench.colorTheme": "Gruvbox Dark Hard"
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "window.menuBarVisibility": "toggle"
 }
