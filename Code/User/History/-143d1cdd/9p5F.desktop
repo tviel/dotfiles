@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Glava Knight
-Comment=Start glava with a radial setup positioned on the infamous knight wallpaper
-Exec=dropbox
-Icon=glava --desktop --force-mod radial
-Terminal=false
-StartupNotify=false
