@@ -53,7 +53,7 @@ it si rather to interpreted as
 where height has to be subtracted from the y pos
 */
 /* #request setgeometry 1921 1824 3840 300 */
-#request setgeometry 4840 160 900 900
+#request setgeometry 2920 160 900 900
 
 /* Window background color (RGB format).
    Does not work with `setopacity "xroot"` */
