@@ -1,0 +1,28 @@
+(defpoll desktop :interval "300ms"
+  "hyprctl activewindow | grep workspace | awk '{print $2}'")
+
+(defwidget workspaces_hypr []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 10
+    (button :class {desktop==ws1 ? "active" : ""}
+            :onclick "hyprctl dispatch workspace 1" iws1)
+    (button :class {desktop==ws2 ? "active" : ""}
+            :onclick "hyprctl dispatch workspace 2" iws2)
+    (button :class {desktop==ws3 ? "active" : ""}
+            :onclick "bspc desktop -f ${ws3}" iws3)
+    (button :class {desktop==ws4 ? "active" : ""}
+            :onclick "bspc desktop -f ${ws4}" iws4)
+    (button :class {desktop==ws5 ? "active" : ""}
+            :onclick "bspc desktop -f ${ws5}" iws5)
+    (button :class {desktop==ws6 ? "active" : ""}
+            :onclick "bspc desktop -f ${ws6}" iws6)
+    (button :class {desktop==ws7 ? "active" : ""}
+            :onclick "bspc desktop -f ${ws7}" iws7)
+    (button :class {desktop==ws8 ? "active" : ""}
+            :onclick "bspc desktop -f ${ws8}" iws8)
+    (button :class {desktop==ws9 ? "active" : ""}
+            :onclick "bspc desktop -f ${ws9}" iws9)
+

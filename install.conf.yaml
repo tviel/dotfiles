@@ -21,6 +21,7 @@
     ~/.config/glava: glava
     ~/.config/bspwm: bspwm
     ~/.config/eww: eww
+    ~/.config/Code/User: Code/User
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

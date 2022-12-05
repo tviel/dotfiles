@@ -1,0 +1,95 @@
+(include "./variables.yuck")
+(include "./widgets.yuck")
+(include "./bspwm.yuck")
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (start)
+    (workspaces)
+    (sidestuff)))
+
+(defwidget status []
+    (centerbox :orientation "h"
+        (music)
+        (box :vexpand "false" 
+             :space-evenly "true"
+             :width "600"
+            (cpu :index "0")
+            (cpu :index "1")
+            (cpu :index "2")
+            (cpu :index "3")
+            (cpu :index "4")
+            (cpu :index "5")
+            (cpu :index "6")
+            (cpu :index "7")
+            (cpu :index "8")
+            (cpu :index "9")
+            (cpu :index "10")
+            (cpu :index "11")
+            (cpu :index "12")
+            (cpu :index "13")
+            (cpu :index "14")
+            (cpu :index "15")
+            (cpu :index "16")
+            (cpu :index "17")
+            (cpu :index "18")
+            (cpu :index "19")
+            (cpu :index "20")
+            (cpu :index "21")
+            (cpu :index "22")
+            (cpu :index "23")
+        )
+        (wifi)
+    )
+)
+
+(defwidget start []
+  (box :class "start"
+       :orientation "h"
+       :space-evenly false
+       :halign "left"
+    (button :class "launcher"
+            :onclick "rofi --show drun" "")))
+
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (metric :label "🔊"
+            :value "1" 
+            :onchange "amixer -D pulse sset Master {}%")
+    (metric :label {EWW_CPU.avg} 
+            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+            :onchange "")
+    time))
+
+
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "30px"
+                      :anchor "top center")
+  :reserve (struts :side "top" :distance "0%")
+  (bar))
+
+(defwindow status
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x "0%"
+                        :y "0%"
+                        :width "100%"
+                        :height "30px"
+                        :anchor "bottom center")
+    :reserve (struts :side "bottom" :distance "0%")
+    (status))
+
+
+(defwindow music_win :stacking "fg" :focusable "false" 
+			    :geometry (geometry :x "20" :y "-40px" :width 428 :height 104 :anchor "bottom left")
+			     				(music_pop))
+
+
+

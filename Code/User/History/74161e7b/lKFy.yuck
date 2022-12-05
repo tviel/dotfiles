@@ -1,0 +1,55 @@
+
+(defvar eww "eww -c $HOME/.config/eww")
+
+(defvar ws1 "TERM")
+(defvar ws2 "WEB")
+(defvar ws3 "MAIL")
+(defvar ws4 "CODE")
+(defvar ws5 "MUSIC")
+(defvar ws6 "CHAT")
+(defvar ws7 "GAMES")
+(defvar ws8 "VAM")
+(defvar ws9 "BLENDER")
+(defvar ws10 "CID")
+
+(defvar iws1 "")
+(defvar iws2 "")
+(defvar iws3 "")
+(defvar iws4 "")
+(defvar iws5 "")
+(defvar iws6 "")
+(defvar iws7 "")
+(defvar iws8 "")
+(defvar iws9 "")
+(defvar iws10 "")
+
+
+(defpoll time :interval "1s"
+  "date '+%H:%M:%S %b %d, %Y'")
+
+(defpoll wifi_status :interval "30s" "~/.config/eww/scripts/wifi.sh --STATUS")
+(defpoll wifi_essid :interval "30s" "~/.config/eww/scripts/wifi.sh --ESSID")
+(defpoll wifi_icon :interval "30s" "~/.config/eww/scripts/wifi.sh --ICON")
+(defpoll wifi_ip :interval "30s" "~/.config/eww/scripts/wifi.sh --IP")
+(defvar wifi_rev false)
+
+(deflisten song :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(deflisten song_cover :initial ""
+  "playerctl --follow metadata --format '{{mpris:artUrl}}' || true")
+(deflisten song_artist :initial ""
+  "playerctl --follow metadata --format '{{xesam:artist}}' || true")
+(deflisten song_title :initial ""
+  "playerctl --follow metadata --format '{{xesam:title}}' || true")
+(deflisten album_title :initial ""
+  "playerctl --follow metadata --format '{{xesam:album}}' || true")
+(deflisten album_artist :initial ""
+  "playerctl --follow metadata --format '{{xesam:albumArtist}}' || true")
+
+(deflisten music_status :initial "Paused"
+  "playerctl --follow status")
+
+(defpoll audio_volume :interval "30s" "pamixer --get-volume")
+
+(defvar music_reveal false)

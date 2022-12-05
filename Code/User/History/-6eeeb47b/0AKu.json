@@ -1,0 +1,8 @@
+{
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorCustomizations": {
+        "editor.background": "#181818",
+        "panel.background": "#181818"
+    }
+}

@@ -1,0 +1,129 @@
+$color_bar: rgba(12, 12, 12, 0.3); //#0c0c0c;
+$color_background: rgba(12, 12, 12, 0.9); //#0c0c0c;
+$color_foreground: #ffffff;
+$color_highlight: #d65d0e;
+
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+}
+
+//Global Styles
+
+.bar {
+  background-color: $color_bar;
+  opacity: 1;
+  color: $color_foreground;
+  font: 14px "Noto Sans Nerd Font";
+}
+.status {
+  background-color: $color_bar;
+  opacity: 1;
+  color: $color_foreground;
+  margin-left: 100px;
+  padding-left: 100px;
+  padding-right: 10px;
+  font: 14px "Noto Sans Nerd Font";
+}
+// Styles on classes (see eww.yuck for more information)
+
+.workspaces button {
+    font: 24px "JetBrainsMono Nerd Font Mono";
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+graph {
+    color: $color_highlight;
+    opacity: 0.3;
+    margin-right: 6px;
+}
+
+.workspaces button.active {
+    color: $color_highlight;
+    border-bottom: 1px solid $color_highlight;
+}
+
+.start button.launcher {
+    color: $color_highlight; 
+    font: 24px "JetBrainsMono Nerd Font Mono";
+}
+
+.sidestuff slider {
+  all: unset;
+  color: $color_highlight;
+}
+
+.metric scale trough highlight {
+  all: unset;
+  background-color: $color_highlight;
+  color: #000000;
+  border-radius: 10px;
+}
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.metric scale trough highlight {
+  all: unset;
+  background-color: #D35D6E;
+  color: #000000;
+  border-radius: 10px;
+}
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.label-ram {
+  font-size: large;
+}
+.workspaces button:hover {
+  color: $color_highlight;
+}
+
+.wifi {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: $color_highlight;
+}
+
+.wifi label.essid {
+    color: $color_foreground;
+}
+
+.music {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: $color_highlight;
+}
+
+.music box.song_cover_art {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.music button {
+    padding-left: 10px;
+    color: $color_foreground;
+    &.song {
+        color: $color_highlight;
+    }
+}
+
+.music_pop box.song_info {
+    background-color: $color_background;
+    padding: 20px;
+}
+
+.music_pop label {
+    color: $color_highlight;
+}

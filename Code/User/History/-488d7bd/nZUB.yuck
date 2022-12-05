@@ -1,0 +1,77 @@
+
+(defwidget metric [label value onchange]
+    (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+(defwidget cpu1 [index]
+        (scale :value {EWW_CPU.cores[index].usage}
+            :orientation "v"
+            :max 100
+            :tooltip {EWW_CPU.cores[index].freq}
+            )
+)
+
+(defwidget cpu [index]
+        (graph :value {EWW_CPU.cores[index].usage}
+            :time-range "1m"
+            :min 0
+            :max 100
+            :tooltip {EWW_CPU.cores[index].freq}
+            )
+)
+
+(defwidget wifi [] 
+  (eventbox :onhover "${eww} update wifi_rev=true"
+			  :onhoverlost "${eww} update wifi_rev=false"
+              :halign "end"
+		(box :vexpand "false" :class "wifi" :hexpand "false" :space-evenly "false"
+                (label :text wifi_icon)
+				(button :class "wifi" :onclick "networkmanager_dmenu" wifi_essid)
+	            (revealer :transition "slideright"
+			        :reveal wifi_rev
+			        :duration "350ms"
+	                (label    :class "essid"
+			            :text wifi_ip
+			        )
+                )
+        )
+  )
+)
+
+(defwidget music [] 
+  (eventbox :onhover "${eww} update music_reveal=true; ${eww} open music_win"
+			  :onhoverlost "${eww} update music_reveal=false; ${eww} close music_win"
+		(box :class "music" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(label :text "" :visible "false")
+            (box :class "song_cover_art" :vexpand "false" :width 30 :hexpand "false" :style "background-image: url('${song_cover}'); background-size: contain")
+			(button :class "song" :wrap "true" :onclick "~/.config/eww/bar/scripts/pop music" song)
+	    (revealer :transition "slideright"
+			      :reveal music_reveal
+			      :duration "350ms"
+          (box :vexpand "false" :hexpand "false" :orientation "h" 
+                    (button :class "song_btn_prev" :onclick "playerctl --player spotify previous" "")
+					(button :class "song_btn_play" :onclick "playerctl --player spotify play-pause" {music_status == "Playing" ? "" : ""})
+					(button :class "song_btn_next" :onclick "playerctl --player spotify next" ""))))))
+
+(defwidget music_pop []
+		(box :class "music_pop" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false"
+			(box :class "song_cover_art" :width 200 :height 200 :vexpand "false" :hexpand "false" :style "background-image: url('${song_cover}'); background-size: contain")
+			(box :class "song_info" :width 400 :height 200 :orientation "v" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" :halign "fill"
+				(label :halign "start" :class "song_title" :wrap "true" :text song_title)
+				(label :halign "start" :class "song_artist" :wrap "true" :text song_artist)
+				(label :halign "start" :class "song_album" :wrap "true" :text album_title)
+				(box :orientation "h" :spacing 15 :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+				    (box :class "music_bar" :halign "center" :vexpand "false" :hexpand "false" :space-evenly "false"
+					    (scale :min 0 :active "true" :max 100 :value 50)
+                    )
+                )
+            )
+        )
+)
