@@ -21,7 +21,8 @@
     ~/.config/glava: glava
     ~/.config/bspwm: bspwm
     ~/.config/eww: eww
-    ~/.config/Code/User: Code/User
+    ~/.config/Code/User/settings.json: Code/User/settings.json
+    ~/Dropbox/Vaults/Brain/.obsidian/snippets: obsidian/snippets
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
