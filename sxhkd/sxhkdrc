@@ -29,11 +29,19 @@ super + shift + {e,w}
 
 # Volume controls
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-    volume{ --up, --down, --toggle}
+    pamixer { --increase 2, --decrease 2, --toggle-mute}
+
+XF86Audio{Prev,Next}
+	playerctl {previous, next}
+
+XF86AudioPlay
+	playerctl play-pause
 
 # Brightness controls
 XF86MonBrightness{Up,Down}
     brightness{ --up, --down}
+
+
 
 # screenshot
 Print

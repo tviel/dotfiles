@@ -10,7 +10,7 @@ gsettings set org.gnome.shell.keybindings switch-to-application-7 "['<Super><Alt
 
 
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 10
-gsettings set org.gnome.desktop.wm.preferences workspace-names "['', '', '', '', '', '', '', '', '']"
+gsettings set org.gnome.desktop.wm.preferences workspace-names "['', '', '', '', '', '', '', '','', '']"
 
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super>2']"
