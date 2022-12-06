@@ -3,6 +3,8 @@ $color_background: rgba(12, 12, 12, 0.9); //#0c0c0c;
 $color_foreground: #ffffff;
 $color_highlight: #d65d0e;
 
+$bar_margin: 12px;
+
 * {
   all: unset; //Unsets everything so you can style everything from scratch
 }
@@ -13,16 +15,16 @@ $color_highlight: #d65d0e;
   background-color: $color_bar;
   opacity: 1;
   color: $color_foreground;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: $bar_margin;
+  margin-right: $bar_margin;
   font: 14px "Noto Sans Nerd Font";
 }
 .status {
   background-color: $color_bar;
   opacity: 1;
   color: $color_foreground;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: $bar_margin;
+  margin-right: $bar_margin;
   font: 14px "Noto Sans Nerd Font";
 }
 // Styles on classes (see eww.yuck for more information)
@@ -102,14 +104,10 @@ graph {
 }
 
 .music {
-    padding-left: 10px;
-    padding-right: 10px;
     color: $color_highlight;
 }
 
 .music box.song_cover_art {
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .music button {

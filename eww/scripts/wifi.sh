@@ -1,8 +1,8 @@
 #!/bin/bash
 
 status=$(nmcli g | grep -oE "disconnected")
-essid=$(nmcli c | grep wlan0 | awk '{print ($1)}')
-ip=$(ip -f inet -o address | grep wlan0 | awk '{print $4}' | sed s#/24##)
+essid=$(nmcli c | grep wlp41s0 | awk '{print ($1)}')
+ip=$(ip -f inet -o address | grep wlp41s0 | awk '{print $4}' | sed s#/24##)
 
 if [ $status ] ; then
     icon="睊"

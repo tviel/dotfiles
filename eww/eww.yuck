@@ -1,15 +1,15 @@
 (include "./variables.yuck")
 (include "./widgets.yuck")
-
+(include "./bspwm.yuck")
 
 (defwidget bar []
-  (centerbox :orientation "h"
+  (centerbox :orientation "h" :class "bar"
     (start)
     (workspaces)
     (sidestuff)))
 
 (defwidget status []
-    (centerbox :orientation "h"
+    (centerbox :orientation "h" :class "status"
         (music)
         (box :vexpand "false" 
              :space-evenly "true"
@@ -39,7 +39,23 @@
             (cpu :index "22")
             (cpu :index "23")
         )
-        (wifi)
+        (box :vexpand "false"
+             :halign "end"
+             :space-evenly "false"
+            (metric :label "/" 
+                    :value {hdd_root_used}
+                    :onchange "")
+            (metric :label "Comet" 
+                    :value {hdd_comet_used}
+                    :onchange "")
+            (metric :label "Backup" 
+                    :value {hdd_backup_used}
+                    :onchange "")
+            (metric :label "Tank" 
+                    :value {hdd_tank_used}
+                    :onchange "")
+            (wifi)
+        )
     )
 )
 
@@ -47,48 +63,16 @@
   (box :class "start"
        :orientation "h"
        :space-evenly false
-       :halign "left"
-    (button :class "launcher"
-            :onclick "rofi -show run" "")))
-
-
-(defwidget workspaces []
-  (box :class "workspaces"
-       :orientation "h"
-       :space-evenly true
        :halign "start"
-       :spacing 10
-    (button :class {desktop==ws1 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws1}" iws1)
-    (button :class {desktop==ws2 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws2}" iws2)
-    (button :class {desktop==ws3 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws3}" iws3)
-    (button :class {desktop==ws4 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws4}" iws4)
-    (button :class {desktop==ws5 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws5}" iws5)
-    (button :class {desktop==ws6 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws6}" iws6)
-    (button :class {desktop==ws7 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws7}" iws7)
-    (button :class {desktop==ws8 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws8}" iws8)
-    (button :class {desktop==ws9 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws9}" iws9)
-    (button :class {desktop==ws10 ? "active" : ""}
-            :onclick "bspc desktop -f ${ws10}" iws10)))
-
+    (button :class "launcher"
+            :onclick "rofi -show drun" "")))
 
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
     (metric :label "🔊"
-            :value "1" 
-            :onchange "amixer -D pulse sset Master {}%")
-    (metric :label {EWW_CPU.avg} 
-            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-            :onchange "")
+            :value {audio_volume} 
+            :onchange "pamixer --set-volume {}")
     time))
 
 

@@ -66,7 +66,7 @@ XF86Launch7
 #    notify-send "XP UNDO" && xdotool windowactivate --sync 52428801 && xdotool key --window 52428801 z
 
 
-#
+###################################################################################################################
 # bspwm hotkeys
 #
 
@@ -93,11 +93,11 @@ super + g
 #
 # scratchpads
 #
-super + e
-    /home/tviel/.config/bspwm/scratchpad.sh fm
+#super + e
+#    /home/tviel/.config/bspwm/scratchpad.sh fm
 
-super + o
-    /home/tviel/.config/bspwm/scratchpad.sh obsidian
+#super + o
+#    /home/tviel/.config/bspwm/scratchpad.sh obsidian
 
 #
 # state/flags
@@ -108,7 +108,7 @@ super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + ctrl + {m,x,y,z}
+super + ctrl + {m,l,s,p}
 	bspc node -g {marked,locked,sticky,private}
 
 #
@@ -148,6 +148,7 @@ super + {_,shift +}{1-9,0}
 super + {alt +, shift + alt +, alt + ctrl +}{1-9,0}
 	bspc {desktop -f, node -d, desktop --swap} {_TERM, _WEB, _MAIL, _CODE, _MUSIC, _CHAT, _GAMES, _VAM, _BLENDER, _CID }
 
+# send to other monitor
 super + alt + Tab
     bspc node -m older
 

@@ -17,6 +17,9 @@ if status is-interactive
     alias eve='env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/1'
     alias d='docker'
     alias dc='docker-compose'
+    alias lock='i3lock-fancy-multimonitor -p -n'
+
+    
 #    colorscript -r
 
 #    cat ~/.cache/wal/sequences

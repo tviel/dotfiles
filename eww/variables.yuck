@@ -23,17 +23,23 @@
 (defvar iws9 "")
 (defvar iws10 "")
 
+
 (defpoll time :interval "1s"
   "date '+%H:%M:%S %b %d, %Y'")
-
-(defpoll desktop :interval "300ms"
-  "bspc query --names -D -d focused")
 
 (defpoll wifi_status :interval "30s" "~/.config/eww/scripts/wifi.sh --STATUS")
 (defpoll wifi_essid :interval "30s" "~/.config/eww/scripts/wifi.sh --ESSID")
 (defpoll wifi_icon :interval "30s" "~/.config/eww/scripts/wifi.sh --ICON")
 (defpoll wifi_ip :interval "30s" "~/.config/eww/scripts/wifi.sh --IP")
+(defpoll wifi_strength :initial "0" :interval "10s" "nmcli dev wifi list | grep ^\* | awk '/\*/{print $8}'")
 (defvar wifi_rev false)
+
+(defpoll hdd_root_used :interval "600s" "df / --output=pcent | awk 'FNR==2 {match($0, /([0-9]+)/,m); print m[0]}'")
+(defpoll hdd_tank_used :interval "600s" "df /home/tviel/Tank --output=pcent | awk 'FNR==2 {match($0, /([0-9]+)/,m); print m[0]}'")
+(defpoll hdd_backup_used :interval "600s" "df /home/tviel/Backup --output=pcent | awk 'FNR==2 {match($0, /([0-9]+)/,m); print m[0]}'")
+(defpoll hdd_comet_used :interval "600s" "df /run/media/tviel/Comet --output=pcent | awk 'FNR==2 {match($0, /([0-9]+)/,m); print m[0]}'")
+
+
 
 (deflisten song :initial ""
   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
@@ -52,6 +58,6 @@
 (deflisten music_status :initial "Paused"
   "playerctl --follow status")
 
-
+(defpoll audio_volume :interval "3s" "pamixer --get-volume")
 
 (defvar music_reveal false)

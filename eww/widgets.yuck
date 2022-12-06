@@ -1,6 +1,6 @@
 
 (defwidget metric [label value onchange]
-  (box :orientation "h"
+    (box :orientation "h"
        :class "metric"
        :space-evenly false
     (box :class "label" label)
@@ -32,8 +32,10 @@
 			  :onhoverlost "${eww} update wifi_rev=false"
               :halign "end"
 		(box :vexpand "false" :class "wifi" :hexpand "false" :space-evenly "false"
-                (label :text wifi_icon)
-				(button :class "wifi" :onclick "networkmanager_dmenu" wifi_essid)
+        (button :class "wifi" :onclick "networkmanager_dmenu" wifi_essid)
+        (metric :label wifi_icon 
+                        :value {wifi_strength}
+                        :onchange "")
 	            (revealer :transition "slideright"
 			        :reveal wifi_rev
 			        :duration "350ms"

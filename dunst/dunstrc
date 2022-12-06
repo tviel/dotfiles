@@ -1,23 +1,40 @@
 [global]
-transparency = 10 
-padding = 20
-frame-width = 1
-font = Noto Sans Nerd Font 10
-progress-bar = true
-indicate-hidden = yes
-separator_color = "#AA0000"
-corner_radius = 12 
 
-background = "#161517"
-foreground = "#c4c4c5" 
-frame_color = "#33050505"
+transparency = 0
+padding = 12
+horizontal_padding = 20
+width = 400
+height = 200
+
+font = Noto Sans Nerd Font 11
+markup = full
+
+progress_bar = true
+indicate_hidden = yes
+
+scale = 0
+gap_size = 8
+alignment = left
+vertical_alignment = top
+ellipsize = middle
+enable_recursive_icon_lookup = true
+icon_theme = Adwaita
+icon_position = left
+min_icon_size = 64
+
+separator_height = 0
+separator_color = "#AA0000"
+
+corner_radius = 8 
+
+frame_width = 0
+background = "#181818aa"
+foreground = "#ebdbb2"
 
 [urgency_normal]
-background = "#326295"
-foreground = "#c4c4c5" 
-frame_color = "#33050505"
+background = "#282828aa"
+foreground = "#ebdbb2"
 
 [urgency_critical]
-background = "#722239"
-frame_color = "#33050505"
-foreground = "#c4c4c5" 
+background = "#d65d0eaa"
+foreground = "#ebdbb2" 
