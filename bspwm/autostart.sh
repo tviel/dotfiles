@@ -2,6 +2,8 @@
 #
 #
 
+polybar -q bspwm -c ~/.config/polybar/config.ini &
+polybar -q status -c ~/.config/polybar/config.ini &
 
 # select terminal desktop
 #

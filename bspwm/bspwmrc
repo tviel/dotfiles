@@ -7,14 +7,14 @@
 # some sophisticated variables to use for comfy
 #
 
-LeftMonitor="DP-2"
-RightMonitor="HDMI-2"
+LeftMonitor="DisplayPort-1"
+RightMonitor="HDMI-A-1"
 
 
 # set and orient Monitors
 xrandr --output $LeftMonitor --auto --primary --output $RightMonitor --right-of $LeftMonitor --auto
 
-# set explicitly german keyboard layout
+	# set explicitly german keyboard layout
 setxkbmap de
 
 xsetroot -cursor_name left_ptr
@@ -78,3 +78,6 @@ bspc rule -a Screenkey manage=off
 
 #bspc rule -a obsidian state=floating sticky=on hidden=on
 #obsidian &
+#
+
+$HOME/.config/bspwm/autostart.sh

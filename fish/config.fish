@@ -10,7 +10,7 @@ if status is-interactive
     alias lst='exa -lahFT --color=always --icons --sort=size --group-directories-first'
     
     alias matrix='neo-matrix -a -c gold -F -D'
-    alias clock='tty-clock -sct -C 4'
+    alias clock='tty-clock -sctB -C 7'
     alias pipes='pipes -p 5 -R -t 1 -r 0'
     alias v='nvim'
     alias pac='pacman'
