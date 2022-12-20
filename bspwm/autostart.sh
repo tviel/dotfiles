@@ -5,6 +5,11 @@
 polybar -q bspwm -c ~/.config/polybar/config.ini &
 polybar -q status -c ~/.config/polybar/config.ini &
 
+# apps to start for tray
+#
+flameshot &
+dropbox &
+
 # select terminal desktop
 #
 bspc desktop -f TERM
