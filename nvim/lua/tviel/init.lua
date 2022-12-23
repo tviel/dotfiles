@@ -1,7 +1,6 @@
 require('tviel/remap')
 require('tviel/colors')
 require('tviel/packer')
-print ('LUA init script included ./lua/tviel/init.lua')
 
 -- HOME = os.getenv("HOME")
 
@@ -54,7 +53,6 @@ endif
 ]])
 
 require("bufferline").setup{}
-require("rust-tools").setup{}
 
 -- has to be set after loading the colorscheme to keep transparency
 vim.cmd([[
