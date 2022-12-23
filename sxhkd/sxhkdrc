@@ -32,10 +32,10 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
     pamixer { --increase 2, --decrease 2, --toggle-mute}
 
 XF86Audio{Prev,Next}
-	playerctl {previous, next}
+	playerctl {previous, next} -p spotify
 
 XF86AudioPlay
-	playerctl play-pause
+	playerctl play-pause -p spotify
 
 # Brightness controls
 XF86MonBrightness{Up,Down}

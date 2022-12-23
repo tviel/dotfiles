@@ -16,8 +16,7 @@
     ~/.config/picom: picom
     ~/.dwm: dwm
     ~/.Xresources: .Xresources
-    ~/.vimrc: vimrc
-    ~/.config/nvim/init.vim: vimrc
+    ~/.config/nvim: nvim
     ~/.config/glava: glava
     ~/.config/bspwm: bspwm
     ~/.config/eww: eww
