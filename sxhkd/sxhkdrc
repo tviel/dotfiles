@@ -66,3 +66,95 @@ XF86Launch7
 #    notify-send "XP UNDO" && xdotool windowactivate --sync 52428801 && xdotool key --window 52428801 z
 
 
+
+#
+# i3wm specific shortcuts
+#
+
+# i3
+
+super + q
+    i3-msg kill
+
+super + shift + c
+    i3-msg reload
+
+super + shift + r
+    i3-msg restart
+
+# change focus with vim or arrow keys
+super + {h,j,k,l}
+    i3-msg focus {left,down,up,right}
+super + {Left,Down,Up,Right}
+    i3-msg focus {left,down,up,right}
+
+# move currently focused window
+super + shift + {h,j,k,l}
+    i3-msg move {left,down,up,right}
+super + shift + {Left,Down,Up,Right}
+    i3-msg focus {left,down,up,right}
+
+# split in vertical or horizontal 
+super + {v,b}
+    i3-msg split {v,h}
+
+# fullscreen toggle
+super + f 
+    i3-msg fullscreen toggle
+
+# change focus between tiling  floating windows
+super + space 
+    i3-msg focus mode_toggle
+
+# toggle tiling / floating
+super + shift + space
+    i3-msg floating toggle
+
+# focus the parent container
+super + a
+    i3-msg focus parent
+
+# resize window
+super + ctrl + {l,j,k,h}
+    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+super + ctrl + {Left,Down,Up,Right}
+    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+
+# layout switch
+# stacking
+super + s
+    i3-msg layout stacking
+#tabbed
+super + w
+    i3-msg layout tabbed
+# tiling
+super + t
+    i3-msg layout toggle split
+
+
+# workspace handling
+
+super + {1-9,0}
+    i3-msg workspace {1-9,10}
+
+super + alt + {1,2,3,4,,6,7,8,9}
+    i3-msg workspace {11,12,13,14,15,16,17,18,19}
+
+super + shift + {1-9,0}
+    i3-msg move container to workspace number {1-9,0}
+
+super + alt + shift + {1,2,3,4,5,6,7,8,9}
+    i3-msg move container to workspace number {11,12,13,14,15,16,17,18,19}
+
+super + alt {j,l}
+    i3-msg move workspace to output {left,right}
+
+# scratchpads
+
+super + o
+    i3run --class obsidian -- obsidian
+
+super + e
+    i3run --class fm -- alacritty --class fm,fm -e ranger
+
+

@@ -14,31 +14,54 @@ super + shift + c
 super + shift + r
     i3-msg restart
 
-# movement
-
+# change focus with vim or arrow keys
 super + {h,j,k,l}
     i3-msg focus {left,down,up,right}
+super + {Left,Down,Up,Right}
+    i3-msg focus {left,down,up,right}
 
-super + shift {h,j,k,l}
+# move currently focused window
+super + shift + {h,j,k,l}
     i3-msg move {left,down,up,right}
+super + shift + {Left,Down,Up,Right}
+    i3-msg focus {left,down,up,right}
 
+# split in vertical or horizontal 
 super + {v,b}
     i3-msg split {v,h}
 
+# fullscreen toggle
 super + f 
     i3-msg fullscreen toggle
 
+# change focus between tiling  floating windows
 super + space 
     i3-msg focus mode_toggle
 
+# toggle tiling / floating
 super + shift + space
     i3-msg floating toggle
 
+# focus the parent container
 super + a
     i3-msg focus parent
 
+# resize window
 super + ctrl + {l,j,k,h}
     i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+super + ctrl + {Left,Down,Up,Right}
+    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+
+# layout switch
+# stacking
+super + s
+    i3-msg layout stacking
+#tabbed
+super + w
+    i3-msg layout tabbed
+# tiling
+super + t
+    i3-msg layout toggle split
 
 
 # workspace handling
