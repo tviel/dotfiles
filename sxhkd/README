@@ -1,0 +1,12 @@
+# sxhkd configuration folder
+
+the folder is meant to collect all sxhkd related config files. This includes generic shortcust as also window manager specific shortcuts.
+
+due to the missing feature to include files in the sxhkd config, the files are split and shall be concatenated on the target system to combine into the window manager specific configuration
+
+e.g. for i3 wm
+
+cat sxhkd_generic > sxhkd
+cat sxhkd_i3 > sxhkd
+
+
