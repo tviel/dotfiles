@@ -1,41 +1,11 @@
-### ip3 config file by tviel (thorsten.viel@gmx.de)
-###
-###
-###
-
-include $HOME/.config/i3/rules.conf
-include $HOME/.config/i3/workspaces.conf
-include $HOME/.config/i3/gruvbox.conf
 
 set $alt Mod1
 set $mod Mod4
 
-###~~~ Monitor Setup
-###
+include $HOME/.config/i3/conf/rules.conf
+include $HOME/.config/i3/conf/workspaces.conf
 
-set $monitor-right HDMI-A-0
-set $monitor-left HDMI-A-1
-
-###~~~ set colors from .Xresources ~~~~~
-###
-
-set_from_resource $foreground foreground #aa0000
-set_from_resource $background background #050505
-set_from_resource $highlight color2 #FF0000
-
-
-##~~~ Global Font ~~~~~~~~~~~~~~~~~~~~~~ 
-##
-
-font pango:Noto Sans Nerd Font 10
-
-
-##~~~ Gaps Configuration ~~~~~~~~~~~~~~~ 
-##
-
-# Title bar text alignment
-title_align center
-
+##~~~ Gaps Configuration ~~~~~~~~~~~~~~~
 
 # Gaps (Outer gaps are added to the inner gaps)
 gaps inner 10
@@ -44,110 +14,131 @@ gaps outer 0
 # Only enable gaps on a workspace when there is at least one container
 #smart_gaps on
 
-# Activate smart borders (always)
-#smart_borders on
+
+##~~~ Title Configuration ~~~~~~~~~~~~~~~
+title_align center
+font pango:monospace 8
+
+## borders
 
 hide_edge_borders both
 default_border none
 default_floating_border none
 
 
-##~~~ Keybindings ~~~~~~~~~~~~~~~~~~~~~~
-##
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
 
-# reload the configuration file
-#bindsym $mod+Shift+c reload
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
 
-# Restart/Quit i3 session 
-#bindsym Control+Shift+r restart
-#bindsym Control+Shift+q exec "pkill -KILL -u $USER"
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-#floating_minimum_size 1920x1080
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+##~~~ Keybindings ~~~~~~~~~~~~~~~~~~~~~~
+##
+## note, that non i3 specific keybindings
+## are handled by sxhkd (e.g. open a terminal)
+## for reasons of wm hopping
 
 # kill focused window
-bindsym $mod+c kill
+bindsym $mod+q kill
 
 # change focus
-#bindsym $mod+h focus up
-#bindsym $mod+j focus left
-#bindsym $mod+k focus right
-#bindsym $mod+l focus down
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
-#bindsym $mod+Shift+h move up
-#bindsym $mod+Shift+j move left
-#bindsym $mod+Shift+k move right
-#bindsym $mod+Shift+l move down
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
-#bindsym $mod+Shift+Left move left
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
-#bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+b split h
+bindsym $mod+c split h
 
 # split in vertical orientation
-#bindsym $mod+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-#bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+q layout stacking
-bindsym $mod+a layout tabbed
-bindsym $mod+y layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-#bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-# TODO bindsym $mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-#bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
 
+# reload the configuration file
+bindsym $mod+Shift+c reload
 
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-#mode "resize" {
-#        # These bindings trigger as soon as you enter the resize mode
-#
-#        bindsym j resize shrink width 10 px or 10 ppt
-#        bindsym k resize grow height 10 px or 10 ppt
-#        bindsym l resize shrink height 10 px or 10 ppt
-#        bindsym h resize grow width 10 px or 10 ppt
-#
-#        # same bindings, but for the arrow keys
-#        bindsym Left resize shrink width 10 px or 10 ppt
-#        bindsym Down resize grow height 10 px or 10 ppt
-#        bindsym Up resize shrink height 10 px or 10 ppt
- #       bindsym Right resize grow width 10 px or 10 ppt
-##
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym odiaeresis resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
         # back to normal: Enter or Escape or $mod+r
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#        bindsym $mod+r mode "default"
-#}
-#bindsym $mod+r mode "resize"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
 
-
-##~~~ Autostart ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-##
-
-#exec_always --no-startup-id "~/.config/i3/bin/launchbar.sh"
-exec --no-startup-id "~/.config/i3/bin/autostart.sh"
-exec_always --no-startup-id "~/.config/i3/bin/autostart_always.sh"
-#exec_always --no-startup-id "wal -R"
