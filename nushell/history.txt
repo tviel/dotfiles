@@ -1,0 +1,459 @@
+ls
+ls Downloads/
+ll
+wget https://mtgjson.com/api/v5/10E.json
+open `10E.json`
+open `10E.json` | get meta
+open `10E.json` | get data
+open `10E.json` | get data.cards
+open `10E.json` | get data.cards | limit 10
+open `10E.json` | get data.cards | get borderColor | uniq
+open `10E.json` | get data.cards | get artist | uniq
+open `10E.json`
+open `10E.json` | get data.cards
+open `10E.json` | get data.cards | get finishes
+open `10E.json` | get data.cards | get finishes | each { |finisher| get }
+open `10E.json` | get data.cards | get finishes | each { |finisher| $finisher }
+open `10E.json` | get data.cards | get finishes | enumerate
+open `10E.json` | get data.cards | get finishes | each { |finisher| $"$finisher" }
+open `10E.json` | get data.cards | get finishes | each { |finisher| $finisher }
+open `10E.json` | get data.cards | get finishes | each { |finisher| $finisher.0 }
+open `10E.json` | get data.cards | get finishes | each { |finisher| $finisher.0 } | uniq
+open `10E.json` | get data.cards | get finishes | each { |finisher| $finisher.0 } | count
+open `10E.json` | get data.cards | get finishes | wrap
+open `10E.json` | get data.cards | get finishes | wrap foil
+wget https://support.staffbase.com/hc/en-us/article_attachments/360009197091/email-password-recovery-code.csv
+open email-password-recovery-code.csv
+open email-password-recovery-code.csv | lines
+open email-password-recovery-code.csv | split column ";"
+open email-password-recovery-code.csv | get Department
+rm email-password-recovery-code.csv
+apt search jc
+apt search json convert
+sudo apt install jc
+cd Projects/charenji/charenji.serve.users/
+ll
+ls
+git logs
+git log
+git log | jc
+jc -h
+git log | jc --git-log
+git log | jc -git-log
+git log | jc --git-log
+apt search jc parser git
+pip search jc parser git log
+pip install jc.parsers.git_log
+jc git log
+jc -h
+exit
+cd Projects/charenji/charenji.serve.users/
+git log | jc --git-log
+git log | jc --git-log | get author
+git log | jc --git-log | from json | take 1
+git log | jc --git-log | from json | take 1 | transpose
+git log | jc --git-log | from json | select author | uniq
+cd
+ll
+mkdir nushell
+cd nushell/
+git clone https://bitbucket.cid-dev.net/scm/caipi/caipi.git
+ll
+git log | jc --git-log | from json | select author | uniq
+cd caipi/
+git log | jc --git-log | from json | select author | uniq
+git log | jc --git-log | from json | select * where author is "Thorsten Viel"
+exit
+ll
+ls -la
+ls | where type="dir"
+ls | where type=="dir"
+ls | where type == "dir"
+ls | where type = "dir"
+ls | sort-by modified | reverse
+ls | sort-by modified
+ls | where size > 100KB | to json
+ls | where size > 100KB | to csv
+ls | where size > 100KB | to json
+ls | where size > 10KB | to csv
+ls | where size > 10KB | to json
+ls | where size > 10KB | to yaml
+ll
+cd 
+cd caipi/
+ll
+ls -la
+exa
+ls
+ls -la
+fzf caipi
+fzf caipi *
+fzf -h
+fzf -i caipi
+fzf
+cd nushell/caipi/
+ll
+ls
+cd Sources/
+ls
+open global.json
+open global.json | select sdk
+open global.json | get sdk
+fzf
+ps
+ps | where status == "Sleeping"
+ps | where status == "Sleeping" | to json
+sys
+sys -e
+sys
+sys | get host
+sys | get cpu
+sys | columns
+sys | table -e
+ll
+cd ..
+ll
+ls -la
+cd Sources/
+ls -la
+ls -la CID.CAIPI.BusinessLogic.DocumentAnalysis/
+ls **/*.csproj
+ls **/*.csproj | where name != *Legacy*
+ls **/*.csproj | where name != CID.CAIPI*
+ls **/*.csproj | where name != CID.CAIPI.Legacy.Account*
+ls **/*.csproj
+less ```<\n>sys | get host<\n>```
+cd CID.CAIPI.BusinessLogic.DocumentAnalysis/
+ll
+ls -la
+less CID.CAIPI.BusinessLogic.DocumentAnalysis.csproj
+open CID.CAIPI.BusinessLogic.DocumentAnalysis.csproj
+open CID.CAIPI.BusinessLogic.DocumentAnalysis.csproj | from xml
+open CID.CAIPI.BusinessLogic.DocumentAnalysis.csproj | from xml | get content
+open CID.CAIPI.BusinessLogic.DocumentAnalysis.csproj | from xml | get content | table -e
+cd ..
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup") }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | get TargetFramework ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | table -e ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | table -e ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | get content ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | get content ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | table -e ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | table ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | explore ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | each { |tf| echo $tf } ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | each { |tf| echo $tf.0 } ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | each { |tf| echo $tf.1 } ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | each { |tf| echo $tf.content } ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | each { |tf| $tf | table -e } ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | take 1 | each { |tf| $tf.1 } ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | echo ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | get | echo ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | { |tf| echo $tf } ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | { |tf| echo $tf.content } ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | { |tf| echo $tf | table } ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | reduce ) }
+ls **/*.csproj | each { |conf| (open $conf.name | where tag == "PropertyGroup" | where tag == "TargetFramework" | reduce { |it| $it} ) }
+ll
+ls -la
+ls **/*.json
+ls **/*.json | where name != global.json
+ls **/*.json | where name != global.json 
+ls **/appsettings.json
+ls **/appsettings.json | each { |setting| $setting<\n>}
+ls **/appsettings.json | each { |setting| $setting<\n>} 
+ls **/appsettings.json | each { |setting| $setting }
+ls **/appsettings.json | each { |setting| open $setting }
+ls **/appsettings.json | each { |setting| open $setting | table -e }
+ls **/appsettings.json | each { |setting| open $setting | from json | table -e }
+ls **/appsettings.json | each { |setting| open $setting | from json }
+ls **/appsettings.json | each { |setting| open $setting.name | from json }
+ls **/appsettings.json | each { |s| open $s.name | from json }
+ls **/appsettings.json | each { |s| open $s.name }
+ls **/appsettings.json | each { |s| open $s.name | from json }
+ls **/appsettings.json | each { |s| open $s.name }
+ls **/appsettings.json | each { |s| open $s.name | get ConnectionStrings }
+cd
+ls Downloads/
+cd Downloads/
+ll
+rm flutter_linux_3.10.3-stable.tar.xz
+cd ..
+ll
+ls -la
+vi .zshrc
+source .zshrc
+ll
+ls -la
+vi .zshrc
+alias ll="ls -la"
+ll
+open `10E.json`
+open `10E.json` | get data.cards | get finishes | wrap foil
+open `10E.json` | get data.cards
+open `10E.json` | get data.cards | table -e
+open `10E.json` | get data.cards | get author
+open `10E.json` | get data.cards | get artist
+open `10E.json` | get data.cards | get artist | uniq
+open `10E.json` | get data.cards | get artist
+open `10E.json` | get data.cards | table -e
+open `10E.json` | get data.cards | get colorIdentity
+open `10E.json` | get data.cards | get colorIdentity | each { |color| $color }
+open `10E.json` | get data.cards | get colorIdentity | each { |color| $color | take 1 }
+open `10E.json` | get data.cards | get colorIdentity | each { |color| $color | reduce { |c, acc| $acc.item  } }
+open `10E.json` | get data.cards | get colorIdentity | each { |color| reduce { |it, acc| $acc.item  } }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $acc.item  } }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $acc.item } }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $acc.item }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $acc }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $it }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $acc + $it }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| "$acc + $it" }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $"$acc + $it" }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $acc + $it }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $"($acc) + ($it)<\n>}<\n>" }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $"($acc) + ($it)" }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $"($it)" }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $"($acc)" }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $"($acc) + ($it)" }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $"($acc) + ($it)\n" }
+open `10E.json` | get data.cards | get colorIdentity | reduce { |it, acc| $"($acc) + ($it)\n" } | uniq
+open `10E.json` | get data.cards | get colorIdentity | each { |it $"($it)\n" } | uniq
+open `10E.json` | get data.cards | get colorIdentity | each { |it| $"($it)\n" } | uniq
+open `10E.json` | get data.cards | get colorIdentity | each { |it| $"($it)" } | uniq
+ls **/appsettings.json | each { |s| open $s.name | get ConnectionStrings }
+ls **/appsettings.json | each { |setting| open $setting | from json | table -e }
+cd nushell/caipi/
+ls **/appsettings.json | each { |setting| open $setting | from json | table -e }
+ls **/appsettings.json | each { |s| open $s.name | get ConnectionStrings }
+ls **/appsettings.json | each { |s| open $s.name | get ConnectionStrings | traverse }
+cd ..
+cp ./10E.json .
+cp ../10E.json .
+ll
+wget https://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip
+unzip chinook.zip
+sudo unzip chinook.zip
+sudo apt install unzip
+unzip chinook.zip
+ll
+ls
+rm -rf *.zip
+ll
+ls -la
+open chinook.db | schema | table
+open chinook.db | schema | get tables | table -e
+open chinook.db | schema | get tables | table
+open chinook.db | schema | get tables.albums
+open chinook.db | schema | get tables.albums | table
+open chinook.db | schema | get tables.albums | get columns 
+open chinook.db | query db "select count() from albums" 
+open chinook.db | query db "select * from albums limit 10" 
+open chinook.db | query db "select * from albums JOIN artists ON ArtistId limit 10" 
+open chinook.db | query db "select * from albums JOIN artists ON ArtistId=ArtistId limit 10" 
+open chinook.db | query db "select * from albums JOIN artists ON albums.ArtistId=artists.ArtistId limit 10" 
+open chinook.db | query db "select * from albums JOIN artists ON albums.ArtistId=artists.ArtistId limit 10" | take 1
+open chinook.db | query db "select * from albums JOIN artists ON albums.ArtistId=artists.ArtistId limit 10" | take 1 | transpose
+open chinook.db | query db "select * from albums JOIN artists ON albums.ArtistId=artists.ArtistId limit 10" | explore
+cd caipi/
+git log | jc --git-log | from json | take 1 | transpose
+pip install js
+pip install jc
+git log | jc --git-log | from json | take 1 | transpose
+echo $PATH
+jc
+echo $PATH
+git log | jc --git-log | from json | take 1 | transpose
+git log | jc --git-log | from json | take 1
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' 
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | table -e
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | where name == "type"
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.name == "type" }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.name == "type" | table -e }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "type" | get Values }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "type" | get $field.Values }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "type" | table -e }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field | table -e }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field | table -e }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "type" | table -e }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "type" }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | take 1 | each { |field| where $field.Name == "type" | table -e }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| take 1 | where $field.Name == "type" | table -e }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| take 1 | echo $field }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| take 1 | $"($field)" }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $"($field)" }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $"($field.1)" }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $"($field.0)" }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field.0.Values }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field.0.Values.0 }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field.0.Values.0 | uniq }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field.0.Values.0 } | uniq
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $"($field.0)" }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $"($field)" }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field.5.Values.0 | uniq }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field.5.Values.0 }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "ids" | $field }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "ids" | $field.0 }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "ids" | $field.1 }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "ids" | $field.2 }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "ids" | $field.3 }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "ids" | $field.4 }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field.Name == "ids" | $field.5 }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| where $field }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field|  $field }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field | each { |it| $it } }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field | each { |it| $it.0 } }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field.0 | each { |it| $it.0 } }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field.0 | each { |it| $it } }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field | where $field.Name == "ids" | each { |it| $it } }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | each { |field| $field }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | any { |field| $field.Name == "ids" }
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | flatten
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | flatten | where Name == "ids"
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | flatten | where Name == "ids" | get Values
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | flatten | where Name == "ids" | get Values | flatten
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | flatten | where Name == "ids" | get Values | flatten | parse "{issuer}/{id}"
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | flatten | where Name == "ids" | get Values | flatten | parse "{issuer}/{id}" | get issuer | uniq
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=1000' | get Documents.Fields | flatten | where Name == "ids" | get Values | flatten | parse "{issuer}/{id}" | get issuer | uniq
+http get 'http://tainfcsisgph05.int.cid-online.net:8101/pools/@Graph/documents/list?count=100' | get Documents.Fields | flatten | where Name == "ids" | get Values | flatten | parse "{issuer}/{id}" | get issuer | uniq
+help query
+query help
+help query db
+help query web
+help query
+help query web
+help query html
+http get https://example.org
+http get https://example.org | query web --query a --attribute href
+nu -v
+cd ..
+wget https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjT2tyx4LiAAxXStKQKHS8KBNcQFnoECBIQAQ&url=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkID%3D521962&usg=AOvVaw2vd06xWtIxQTTv-3KBpe8y&opi=89978449
+ll
+ls
+rm url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjT2tyx4LiAAxXStKQKHS8KBNcQFnoECBIQAQ&url=https:%2F%2Fgo.microsoft.com%2Ffwlink%2F?LinkID=521962&usg=AOvVaw2vd06xWtIxQTTv-3KBpe8y&opi=89978449
+wget https://file-examples.com/wp-content/storage/2017/02/file_example_XLS_5000.xls
+ls
+open file_example_XLS_5000.xls
+rm file_example_XLS_5000.xls
+wget https://file-examples.com/wp-content/storage/2017/02/file_example_XLS_5000.xls
+less file_example_XLS_5000.xls
+rm file_example_XLS_5000.xls
+wget https://thespreadsheetguru.com/wp-content/uploads/2022/12/EmployeeSampleData.zip
+ll
+ls
+unzip EmployeeSampleData.zip
+rm EmployeeSampleData.zip
+ls
+open `Employee Sample Data.xlsx`
+open `Employee Sample Data.xlsx` | get Data
+ls
+rm `Employee Sample Data.csv`
+open `Employee Sample Data.xlsx` | get Data
+open `Employee Sample Data.xlsx` | get Data | where column2 == "*Analyst*"
+open `Employee Sample Data.xlsx` | get Data | where column2 == *Analyst*
+open `Employee Sample Data.xlsx` | get Data | where column2 ~= Analyst
+help commands
+help commands | group-by category
+open `Employee Sample Data.xlsx` | get Data | where column2 =~ Analyst
+open `Employee Sample Data.xlsx` | get Data | where column2 =~ Analyst | where column3 == "IT"
+sys | columns
+sys | select cpu
+sys | select cpu | table -e
+open `Employee Sample Data.xlsx` | get Data | where column2 =~ Analyst | where column3 == "IT"
+open `Employee Sample Data.xlsx` | get Data | where column2 =~ Analyst | where column3 == "IT" | to md
+tutor
+tutor list
+query --help
+register ~/.local/share/cargo/bin/nu_plugin_query
+cargo --help
+cargo search nu_plugin
+cargo install search nu_plugin_highlight
+cargo install search nu_plugin_plot
+cargo --help
+cargo install --path .
+git clone https://github.com/nushell/nushell.git
+cd nushell/
+ll
+ls
+cd crates/
+ls
+cd nu_plugin_query/
+ll
+cargo install --path .
+register ~/.local/share/cargo/bin/nu_plugin_query
+which cargo
+register /home/tviel/.cargo/bin/
+ls /home/tviel/.cargo/bin/
+register /home/tviel/.cargo/bin/nu_plugin_query
+help commands
+help query json
+http get https://example.org | query web --query a --attribute href
+http get https://cid.com | query web --query a --attribute href
+cd 
+cd nushell/caipi/
+ll
+ls -la
+git log
+git log --pretty=%h>>|<<%aN>>
+git log --pretty="%h>>|<<%aN>>"
+git log --pretty="%h|%aN|%s|%aD"
+git log --pretty="%h | %aN | %s | %aD"
+git log --pretty="%h | %aN | %s | %aD" | lines | split "|"
+git log --pretty="%h | %aN | %s | %aD" | lines | split column "|"
+git log | jc --git-log
+git log | jc --git-log | from json 
+git log | jc --git-log | from json | take 1 | transpose
+git log | jc --git-log | from json | select author | uniq
+git log | jc --git-log | from json | group-by author
+git log | jc --git-log | from json | group-by author | flatten
+git log | jc --git-log | from json | group-by author | table
+git log | jc --git-log | from json | group-by author | get 2
+git log | jc --git-log | from json | group-by author
+git log | jc --git-log | from json | group-by author | rename author count
+git log | jc --git-log | from json | group-by author | count
+git log | jc --git-log | from json | group-by author | size
+git log | jc --git-log | from json | group-by author | take 1
+git log | jc --git-log | from json | group-by author | table | take 1
+git log | jc --git-log | from json | group-by author | transpose 
+git log | jc --git-log | from json | group-by author | transpose | get column1
+git log | jc --git-log | from json | group-by author | transpose | get column1 | flatten
+git log | jc --git-log | from json | group-by author | transpose
+git log | jc --git-log | from json | group-by author | sort-by column1.size
+git log | jc --git-log | from json | group-by author | sort-by column1.count
+git log | jc --git-log | from json | group-by author | sort-by column1
+git log | jc --git-log | from json | group-by author
+git log | jc --git-log | from json | group-by author | transpose
+git log | jc --git-log | from json | group-by author | transpose | sort-by column1
+git log | jc --git-log | from json | group-by author | transpose | sort-by column1.size
+git log | jc --git-log | from json | group-by author | transpose | sort-by column1.count
+git log | jc --git-log | from json | group-by author | transpose | sort-by column1
+git log | jc --git-log | from json | group-by author | transpose | sort-by column0
+git log | jc --git-log | from json | group-by author
+git log | jc --git-log | from json | group-by author | transpose | where column1.length > 100
+git log | jc --git-log | from json | group-by author | transpose | where ($it.column1 | length) > 100
+git log | jc --git-log | from json | group-by author | transpose | where ($it.column1 | length) > 100 | sort-by ($it.column1 | length)
+git log | jc --git-log | from json | group-by author | transpose | where ($it.column1 | length) > 100 | sort-by count --column
+git log | jc --git-log | from json | group-by author | transpose | where ($it.column1 | length) > 100 | count --column
+git log | jc --git-log | from json | group-by author | transpose | where ($it.column1 | length) > 100
+git log | jc --git-log | from json | group-by author | transpose | where ($it.column1 | length) > 500
+git log | jc --git-log | from json | where author == "Thorsten Viel" | transpose
+git log | jc --git-log | from json | group-by author | transpose | where ($it.column1 | length) > 500
+docker
+docker ps
+$nu.env-path
+nvim /home/tviel/.config/nushell/env.nu
+$nu.config-path
+nvim /home/tviel/.config/nushell/config.nu
+exit
+git status
+git add .
+git status
