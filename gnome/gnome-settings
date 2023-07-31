@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # change defaults to non-destructive
+gsettings set org.gnome.shell.keybindings switch-to-application-1 "['<Super><Alt>1']"
+gsettings set org.gnome.shell.keybindings switch-to-application-2 "['<Super><Alt>2']"
+gsettings set org.gnome.shell.keybindings switch-to-application-3 "['<Super><Alt>3']"
 gsettings set org.gnome.shell.keybindings switch-to-application-4 "['<Super><Alt>4']"
 gsettings set org.gnome.shell.keybindings switch-to-application-5 "['<Super><Alt>5']"
 gsettings set org.gnome.shell.keybindings switch-to-application-6 "['<Super><Alt>6']"
@@ -24,7 +27,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>0']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-1 "['<Shift><Super>1']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-2 "['<Shift><Super>2']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Shift><Super>3']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Shift><Super>§']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Shift><Super>4']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Shift><Super>5']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Shift><Super>6']"
